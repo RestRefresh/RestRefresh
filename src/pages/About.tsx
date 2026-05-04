@@ -71,7 +71,7 @@ interface FAQItemProps {
 function FAQItem({ question, answer }: FAQItemProps) {
   const [isOpen, setIsOpen] = useState(false);
   return (
-    <div className="bg-white rounded-xl border border-zinc-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+    <div className="bg-white rounded-md border border-zinc-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
       <button 
         onClick={() => setIsOpen(!isOpen)}
         className="w-full flex justify-between items-center p-6 text-left font-bold text-lg cursor-pointer"
@@ -139,7 +139,7 @@ export default function About() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8 h-auto md:h-[650px]">
             {/* Column 1 */}
             <div className="flex flex-col h-full">
-              <div className="flex-1 rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <div className="flex-1 rounded-xl overflow-hidden shadow-2xl">
                 <img 
                   alt="Premium minimalist sleeping pod interior" 
                   className="w-full h-full object-cover" 
@@ -149,11 +149,11 @@ export default function About() {
             </div>
             {/* Column 2 */}
             <div className="flex flex-col h-full gap-8">
-              <div className="bg-primary text-white p-10 rounded-[2.5rem] flex flex-col justify-center h-1/2 shadow-xl">
+              <div className="bg-primary text-white p-10 rounded-lg flex flex-col justify-center h-1/2 shadow-xl">
                 <div className="text-7xl font-black mb-2 font-headline tracking-tighter">90%</div>
                 <div className="text-2xl font-bold opacity-90 tracking-tight">Faster Recovery Rate</div>
               </div>
-              <div className="flex-1 rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <div className="flex-1 rounded-xl overflow-hidden shadow-2xl">
                 <img 
                   alt="Team members" 
                   className="w-full h-full object-cover" 
@@ -163,14 +163,14 @@ export default function About() {
             </div>
             {/* Column 3 */}
             <div className="flex flex-col h-full gap-8">
-              <div className="flex-1 rounded-[2.5rem] overflow-hidden shadow-2xl">
+              <div className="flex-1 rounded-xl overflow-hidden shadow-2xl">
                 <img 
                   alt="Person working" 
                   className="w-full h-full object-cover" 
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuAffeDy6xFrhpLUXJiMGkFFUMauz9j400z0rjbtNcYnUFkLjTVKKjwMT2iCJo-jiLyRAl3oM8a1L2z_mfk14X_1KYukLqomU358_0b_f8RyduE2iNLyU79zgIKUDQxhcmjrahat8PsLhlshkIeLSHZsgCgWy97lHOMkh6QqMolgdGt8U5ukXxU3bvSjE5WrFmI3b-42YvJxYFIP4jQcKrnHnA9yV1NMToYqm9wfKGym3VHHCEOk0bSW9wCLHE_Ry4ekwcEcKq8cjoo" 
                 />
               </div>
-              <div className="bg-zinc-950 text-white p-10 rounded-[2.5rem] flex flex-col justify-center h-[40%] shadow-xl">
+              <div className="bg-zinc-950 text-white p-10 rounded-lg flex flex-col justify-center h-[40%] shadow-xl">
                 <div className="text-6xl font-black mb-2 font-headline tracking-tighter">50%</div>
                 <div className="text-xl opacity-80 tracking-tight">Better Mental Clarity</div>
               </div>
@@ -187,7 +187,7 @@ export default function About() {
               So we asked ourselves— Why isn’t there a simple space for this already? To understand better, we spoke to passengers, auto drivers, and staff around the hub. What did they tell us? That people don’t always need a hotel. That hygiene matters more than anything. That safety, especially for luggage and solo travellers, is non-negotiable. That even 2–3 hours of proper rest can make a huge difference. And most importantly— that if a clean, safe, nearby option existed, people would use it.
             </p>
             
-            <div className="bg-zinc-50 p-12 rounded-[2.5rem] border-l-8 border-primary my-12 shadow-sm">
+            <div className="bg-zinc-50 p-12 rounded-lg border-l-8 border-primary my-12 shadow-sm">
               <p className="text-2xl font-bold text-zinc-900 mb-4 tracking-tight">That’s exactly why Rest Refresh was created.</p>
               <p className="text-zinc-500">Not as a luxury. Not as a replacement for hotels. But as something travellers have quietly needed for years.</p>
             </div>
@@ -196,7 +196,7 @@ export default function About() {
               <h3 className="text-3xl font-bold text-zinc-900 tracking-tight">So what can you do here?</h3>
               <ul className="grid grid-cols-1 gap-8">
                 <li className="flex gap-6 group">
-                  <div className="bg-orange-50 p-4 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <div className="bg-orange-50 p-4 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
                     <Bed size={28} />
                   </div>
                   <div className="space-y-1">
@@ -205,7 +205,7 @@ export default function About() {
                   </div>
                 </li>
                 <li className="flex gap-6 group">
-                  <div className="bg-orange-50 p-4 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <div className="bg-orange-50 p-4 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
                     <ShowerHead size={28} />
                   </div>
                   <div className="space-y-1">
@@ -214,7 +214,7 @@ export default function About() {
                   </div>
                 </li>
                 <li className="flex gap-6 group">
-                  <div className="bg-orange-50 p-4 rounded-2xl text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
+                  <div className="bg-orange-50 p-4 rounded-lg text-primary group-hover:bg-primary group-hover:text-white transition-colors duration-300 shadow-sm">
                     <Lock size={28} />
                   </div>
                   <div className="space-y-1">
@@ -279,7 +279,7 @@ export default function About() {
                 transition={{ delay: i * 0.1 }}
                 className="text-center group"
               >
-                <div className="aspect-square rounded-[2rem] overflow-hidden mb-8 shadow-sm group-hover:shadow-2xl transition-all duration-500 bg-zinc-100">
+                <div className="aspect-square rounded-lg overflow-hidden mb-8 shadow-sm group-hover:shadow-2xl transition-all duration-500 bg-zinc-100">
                   <img 
                     alt={member.name} 
                     className="w-full h-full object-cover grayscale group-hover:grayscale-0 transition-all duration-700 scale-110 group-hover:scale-100" 
@@ -309,7 +309,7 @@ export default function About() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: i * 0.1 }}
-                className="bg-zinc-50 p-10 rounded-[2.5rem] shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
+                className="bg-zinc-50 p-10 rounded-lg shadow-sm hover:shadow-xl transition-all duration-500 flex flex-col"
               >
                 <div className="flex text-primary mb-6 gap-1">
                   {[...Array(5)].map((_, i) => <Star key={i} size={18} fill="currentColor" />)}
@@ -345,14 +345,14 @@ export default function About() {
       {/* CTA Section */}
       <section className="my-32">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="bg-zinc-900 rounded-[3rem] p-20 text-center relative overflow-hidden shadow-2xl">
+          <div className="bg-zinc-900 rounded-lg p-20 text-center relative overflow-hidden shadow-2xl">
           <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-50"></div>
           <div className="relative z-10 space-y-8">
             <h2 className="text-white text-4xl md:text-6xl font-black mb-6 tracking-tight">Ready to find your center?</h2>
             <p className="text-white/60 max-w-xl mx-auto mb-10 text-xl font-light leading-relaxed">
               Experience our pods for yourself. Book your first session at any of our city locations.
             </p>
-            <button className="bg-primary text-white px-12 py-5 rounded-2xl font-bold text-xl hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/30 cursor-pointer">
+            <button className="bg-primary text-white px-10 py-3 rounded-md font-bold text-base hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/30 cursor-pointer">
               Find a Pod Near You
             </button>
           </div>

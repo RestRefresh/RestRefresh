@@ -1,51 +1,75 @@
-import { motion } from 'motion/react';
-import { User, Sparkles, Footprints, Zap } from 'lucide-react';
+import { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import { X, ChevronLeft, ChevronRight, Bed, Briefcase, Coffee, Eye } from 'lucide-react';
 
 const galleryItems = [
   {
     type: "text",
     bgColor: "bg-[#E0E2FF]",
-    tag: "Premium Pod Selection",
-    title: "The Zenith VIP: Absolute solitude for focus.",
-    buttonText: "Book Space",
-    icon: <Sparkles className="text-zinc-900" size={24} />
+    tag: "Rest Pods",
+    title: "Quiet Zones: Private pods optimized for deep rest.",
+    buttonText: "Book Pod",
+    icon: <Bed className="text-zinc-900" size={24} />
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=1200",
-    alt: "Premium Service"
+    src: "https://images.unsplash.com/photo-1535312800630-1c173409799a?q=80&w=1200&auto=format&fit=crop",
+    alt: "Sleeping Pods"
   },
   {
     type: "text",
     bgColor: "bg-[#D1F2D6]",
-    tag: "Rest & Recovery",
-    title: "Lumina Dream: Designed for restorative sleep.",
-    buttonText: "Explore",
-    icon: <Zap className="text-zinc-900" size={24} />
+    tag: "Cloakroom",
+    title: "Secure Storage: Staff-managed storage for your peace of mind.",
+    buttonText: "Check Rates",
+    icon: <Briefcase className="text-zinc-900" size={24} />
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1517502884422-01d80af1d90d?auto=format&fit=crop&q=80&w=1200",
-    alt: "Lumina Design"
+    src: "https://images.unsplash.com/photo-1610244767159-0f9797ff1926?q=80&w=1200&auto=format&fit=crop",
+    alt: "Storage Lockers"
   },
   {
     type: "text",
     bgColor: "bg-[#FFF0D1]",
-    tag: "Modern Living",
-    title: "Essential Refresh: The ultimate pit stop.",
-    buttonText: "View Details",
-    icon: <Footprints className="text-zinc-900" size={24} />
+    tag: "Refresh Cafe",
+    title: "The Pitstop: Recharge yourself with premium coffee and snacks.",
+    buttonText: "View Menu",
+    icon: <Coffee className="text-zinc-900" size={24} />
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1519710164239-da123dc03ef4?auto=format&fit=crop&q=80&w=1200",
-    alt: "Tech Pod"
+    src: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1200&auto=format&fit=crop",
+    alt: "Cafeteria"
   }
 ];
 
 export default function Gallery() {
+  const [selectedIndex, setSelectedIndex] = useState<number | null>(null);
+
+  // Filter only images for the gallery slider
+  const imagesOnly = galleryItems
+    .filter(item => item.type === "image")
+    .map(item => ({ src: item.src, alt: item.alt }));
+
+  const openLightbox = (imageSrc: string) => {
+    const index = imagesOnly.findIndex(img => img.src === imageSrc);
+    if (index !== -1) setSelectedIndex(index);
+  };
+
+  const closeLightbox = () => setSelectedIndex(null);
+
+  const navigate = (direction: 'next' | 'prev') => {
+    if (selectedIndex === null) return;
+    if (direction === 'next') {
+      setSelectedIndex((selectedIndex + 1) % imagesOnly.length);
+    } else {
+      setSelectedIndex((selectedIndex - 1 + imagesOnly.length) % imagesOnly.length);
+    }
+  };
+
   return (
-    <section className="py-24 bg-zinc-50 overflow-hidden">
+    <section className="py-24 bg-zinc-50 overflow-hidden relative">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="flex flex-col md:flex-row md:items-end justify-between mb-16 gap-6">
           <div className="space-y-2">
@@ -69,14 +93,14 @@ export default function Gallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`rounded-[2.5rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 aspect-[4/5] ${
+              className={`rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 aspect-[4/5] ${
                 item.type === 'text' ? item.bgColor : 'bg-white'
               }`}
             >
               {item.type === 'text' ? (
                 <div className="p-10 flex flex-col h-full bg-linear-to-br from-white/20 to-transparent">
                   <div className="flex items-center gap-3 mb-8">
-                    <div className="bg-white/50 backdrop-blur-sm p-3 rounded-2xl text-zinc-900 shadow-sm border border-white/50">
+                    <div className="bg-white/50 backdrop-blur-sm p-3 rounded-lg text-zinc-900 shadow-sm border border-white/50">
                       {item.icon}
                     </div>
                     <span className="text-[10px] font-bold uppercase tracking-[0.2em] text-zinc-900/80">
@@ -87,25 +111,94 @@ export default function Gallery() {
                     {item.title}
                   </h3>
                   <div className="mt-auto">
-                    <button className="bg-black text-white px-8 py-3 rounded-full text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                    <button className="bg-black text-white px-8 py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:scale-105 active:scale-95 transition-all cursor-pointer">
                       {item.buttonText}
                     </button>
                   </div>
                 </div>
               ) : (
-                <div className="relative h-full group">
+                <div 
+                  className="relative h-full group cursor-pointer"
+                  onClick={() => openLightbox(item.src!)}
+                >
                   <img 
                     src={item.src} 
                     alt={item.alt} 
                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
                   />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/30 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+                  <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-md p-4 rounded-full border border-white/30 scale-50 group-hover:scale-100 transition-transform duration-500">
+                      <Eye className="text-white" size={24} />
+                    </div>
+                  </div>
                 </div>
               )}
             </motion.div>
           ))}
         </div>
       </div>
+      <AnimatePresence>
+        {selectedIndex !== null && (
+          <motion.div
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
+          >
+            <button 
+              onClick={closeLightbox}
+              className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors cursor-pointer z-50 p-2 bg-white/10 rounded-full"
+            >
+              <X size={32} />
+            </button>
+
+            <button 
+              onClick={() => navigate('prev')}
+              className="absolute left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors cursor-pointer z-50 p-4 bg-white/10 rounded-full hidden md:block"
+            >
+              <ChevronLeft size={40} />
+            </button>
+
+            <button 
+              onClick={() => navigate('next')}
+              className="absolute right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors cursor-pointer z-50 p-4 bg-white/10 rounded-full hidden md:block"
+            >
+              <ChevronRight size={40} />
+            </button>
+
+            <motion.div 
+              key={selectedIndex}
+              initial={{ scale: 0.9, opacity: 0 }}
+              animate={{ scale: 1, opacity: 1 }}
+              transition={{ type: "spring", damping: 25, stiffness: 300 }}
+              className="relative max-w-6xl w-full aspect-video rounded-xl overflow-hidden shadow-2xl"
+            >
+              <img 
+                src={imagesOnly[selectedIndex].src} 
+                alt={imagesOnly[selectedIndex].alt}
+                className="w-full h-full object-cover"
+              />
+              <div className="absolute bottom-0 inset-x-0 p-8 bg-linear-to-t from-black/80 to-transparent">
+                <p className="text-white font-headline font-bold text-xl">{imagesOnly[selectedIndex].alt}</p>
+                <div className="flex gap-2 mt-4">
+                  {imagesOnly.map((_, i) => (
+                    <button
+                      key={i}
+                      onClick={(e) => {
+                        e.stopPropagation();
+                        setSelectedIndex(i);
+                      }}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${
+                        i === selectedIndex ? 'w-8 bg-primary' : 'w-2 bg-white/30'
+                      }`}
+                    />
+                  ))}
+                </div>
+              </div>
+            </motion.div>
+          </motion.div>
+        )}
+      </AnimatePresence>
     </section>
   );
 }

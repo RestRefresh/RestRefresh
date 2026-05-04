@@ -14,7 +14,7 @@ export default function MapSection() {
           </p>
         </div>
         
-        <div className="h-[550px] rounded-[3rem] overflow-hidden shadow-2xl border border-zinc-100 relative group">
+        <div className="h-[550px] rounded-lg overflow-hidden shadow-2xl border border-zinc-100 relative group">
           {/* Real Google Map */}
           <iframe
             title="Vyttila Location Map"
@@ -47,10 +47,10 @@ export default function MapSection() {
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.3 }}
-            className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-md bg-white/95 backdrop-blur-md p-8 rounded-3xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-white/20 z-10"
+            className="absolute bottom-10 left-1/2 -translate-x-1/2 w-[calc(100%-3rem)] max-w-md bg-white/95 backdrop-blur-md p-8 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.2)] border border-white/20 z-10"
           >
             <div className="flex items-center gap-6">
-              <div className="bg-primary text-white p-4 rounded-2xl shadow-lg">
+              <div className="bg-primary text-white p-4 rounded-lg shadow-lg">
                 <MapPin size={24} />
               </div>
               <div className="space-y-1">

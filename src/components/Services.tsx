@@ -43,7 +43,7 @@ export default function Services() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`p-10 rounded-[2rem] shadow-sm hover:shadow-xl transition-all duration-300 min-h-[380px] flex flex-col items-start group ${
+              className={`p-10 rounded-lg shadow-sm hover:shadow-xl transition-all duration-300 min-h-[380px] flex flex-col items-start group ${
                 service.primary 
                   ? 'bg-primary text-white' 
                   : 'bg-white border border-zinc-100'

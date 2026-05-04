@@ -34,11 +34,11 @@ export default function Hero() {
             Tired between journeys? We've got sleeping pods, shower facilities, and secure luggage storage - open 24x7 at the heart of Ernakulam's biggest transit hub.
           </p>
           <div className="flex flex-wrap gap-4">
-            <button className="bg-primary text-on-primary px-8 py-4 rounded-xl font-headline font-bold tracking-tight shadow-xl shadow-black/20 hover:translate-y-[-2px] transition-all active:scale-95 cursor-pointer">
+            <button className="bg-primary text-on-primary px-8 py-3 rounded-md font-headline font-bold tracking-tight shadow-xl shadow-black/20 hover:translate-y-[-2px] transition-all active:scale-95 cursor-pointer">
               Enquire Now
             </button>
-            <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-4 rounded-xl font-headline font-bold tracking-tight hover:bg-white/20 transition-all active:scale-95 cursor-pointer">
-              Enquire Now
+            <button className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3 rounded-md font-headline font-bold tracking-tight hover:bg-white/20 transition-all active:scale-95 cursor-pointer">
+              View Locations
             </button>
           </div>
         </motion.div>
@@ -48,7 +48,7 @@ export default function Hero() {
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:flex bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-2xl flex-col gap-6 text-white min-w-[280px]"
+          className="hidden lg:flex bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg flex-col gap-6 text-white min-w-[280px]"
         >
           <div className="space-y-1">
             <span className="block text-4xl font-black font-headline">4.9/5</span>

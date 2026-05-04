@@ -29,14 +29,14 @@ export default function Offer() {
           viewport={{ once: true }}
           className="flex flex-col sm:flex-row items-center gap-8 w-full lg:w-auto"
         >
-          <div className="flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 px-8 py-5 rounded-2xl text-white shadow-2xl">
+          <div className="flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 px-8 py-5 rounded-lg text-white shadow-2xl">
             <Gift className="text-orange-300" size={28} />
             <div className="space-y-0.5">
               <span className="block text-[10px] uppercase tracking-widest opacity-70 font-bold">Promo Code</span>
               <span className="text-xl font-black tracking-[0.2em]">ELEVATE10</span>
             </div>
           </div>
-          <button className="bg-white text-primary px-12 py-5 rounded-2xl font-headline font-bold text-lg shadow-2xl hover:scale-105 hover:bg-orange-50 transition-all active:scale-95 cursor-pointer whitespace-nowrap">
+          <button className="bg-white text-primary px-12 py-5 rounded-lg font-headline font-bold text-lg shadow-2xl hover:scale-105 hover:bg-orange-50 transition-all active:scale-95 cursor-pointer whitespace-nowrap">
             Claim Your Discount
           </button>
         </motion.div>

@@ -6,13 +6,13 @@ export default function Footer() {
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-20">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-16 mb-20">
           <div className="lg:col-span-2 space-y-8">
-            <div className="flex items-center gap-3">
+            <div className="flex items-center gap-4">
               <img 
                 alt="Rest Refresh Logo" 
-                className="h-10 w-10 brightness-0 invert object-contain" 
-                src="https://lh3.googleusercontent.com/aida/ADBb0ugx8Ivcdxmf_xfHKhHXfSRyOE-TbXAGTGCEjlZbfGqFxWTRFkfm0rZouV2goQoh_Hbb78A_90XJ-Ud2OArzsIwVCGu0maFe5ihMpEszURrL2Afwqyf0ekW-uoKITug0j9lCfTfq6XZQsLHkhMRxmWS5wnMpYCW5d898NRryeMBRVZkik6C9D7GtrbP2nwenFp-odnqZC4e7jJ6Tk_oLoclWuqNewUStDiWlREugwqDfh56WvAWY1X8ItZi82SKiVEDLQ5NZotWdSA" 
+                className="h-16 w-16 object-contain shadow-2xl shadow-black/40" 
+                  src="/logo.svg" 
               />
-              <span className="text-2xl font-bold text-zinc-50 font-headline tracking-tight">Rest Refresh</span>
+              <span className="text-3xl font-black text-zinc-50 font-headline tracking-tighter">Rest Refresh</span>
             </div>
             <p className="font-body text-zinc-400 text-base leading-relaxed max-w-sm font-light">
               Redefining urban solitude through premium, bookable micro-spaces. Your private office, lounge, and sanctuary, anywhere in the city.

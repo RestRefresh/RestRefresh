@@ -47,7 +47,7 @@ export default function OfferPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="w-full bg-white rounded-[3rem] relative overflow-hidden flex flex-col justify-end min-h-[500px] md:min-h-[700px] shadow-2xl border border-zinc-100"
+            className="w-full bg-white rounded-xl relative overflow-hidden flex flex-col justify-end min-h-[500px] md:min-h-[700px] shadow-2xl border border-zinc-100"
           >
             <img 
               alt="High-tech rest pod interior" 
@@ -68,7 +68,7 @@ export default function OfferPage() {
                     {spot.isMain ? <X size={12} className="text-primary" /> : <Plus size={12} className="text-primary" />}
                   </div>
                 </div>
-                <div className={`opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 -translate-x-1/2 mb-6 w-56 bg-zinc-900/90 backdrop-blur-xl text-white text-xs p-4 rounded-2xl shadow-2xl transition-all duration-300 translate-y-2 group-hover:translate-y-1 pointer-events-none text-center border border-white/10 ${spot.isMain ? '!opacity-100 !visible !translate-y-0' : ''}`}>
+                <div className={`opacity-0 invisible group-hover:opacity-100 group-hover:visible absolute bottom-full left-1/2 -translate-x-1/2 mb-6 w-56 bg-zinc-900/90 backdrop-blur-xl text-white text-xs p-4 rounded-lg shadow-2xl transition-all duration-300 translate-y-2 group-hover:translate-y-1 pointer-events-none text-center border border-white/10 ${spot.isMain ? '!opacity-100 !visible !translate-y-0' : ''}`}>
                   <strong className="block text-primary mb-1 text-sm">{spot.title}</strong>
                   <p className="font-light opacity-80">{spot.description}</p>
                 </div>
@@ -89,10 +89,10 @@ export default function OfferPage() {
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              className="bg-white p-10 rounded-[2.5rem] flex flex-col justify-between hover:shadow-2xl transition-all duration-500 border border-zinc-100 group"
+              className="bg-white p-10 rounded-xl flex flex-col justify-between hover:shadow-2xl transition-all duration-500 border border-zinc-100 group"
             >
               <div className="space-y-8">
-                <div className="w-16 h-16 bg-orange-50 rounded-2xl flex items-center justify-center group-hover:bg-primary transition-colors">
+                <div className="w-16 h-16 bg-orange-50 rounded-lg flex items-center justify-center group-hover:bg-primary transition-colors">
                   <ShieldCheck size={32} className="text-primary group-hover:text-white" />
                 </div>
                 <div className="space-y-3">
@@ -110,10 +110,10 @@ export default function OfferPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
-              className="bg-[#D1F2FF] p-10 rounded-[2.5rem] flex flex-col justify-between hover:shadow-2xl transition-all duration-500 border border-blue-100 group"
+              className="bg-[#D1F2FF] p-10 rounded-xl flex flex-col justify-between hover:shadow-2xl transition-all duration-500 border border-blue-100 group"
             >
               <div className="space-y-8">
-                <div className="w-16 h-16 bg-white/50 backdrop-blur-sm rounded-2xl flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
+                <div className="w-16 h-16 bg-white/50 backdrop-blur-sm rounded-lg flex items-center justify-center group-hover:bg-blue-500 group-hover:text-white transition-colors">
                   <Zap size={32} className="text-blue-500 group-hover:text-white" />
                 </div>
                 <div className="space-y-3">
@@ -135,10 +135,10 @@ export default function OfferPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: 0.2 }}
-              className="bg-primary p-10 rounded-[2.5rem] flex flex-col justify-between text-white hover:shadow-2xl hover:scale-[1.02] transition-all duration-500"
+              className="bg-primary p-10 rounded-xl flex flex-col justify-between text-white hover:shadow-2xl hover:scale-[1.02] transition-all duration-500"
             >
               <div className="space-y-8">
-                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-2xl flex items-center justify-center">
+                <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
                   <Bell size={32} className="text-white" />
                 </div>
                 <div className="space-y-3">
@@ -146,7 +146,7 @@ export default function OfferPage() {
                   <p className="text-white/80 text-sm leading-relaxed font-light">Digital concierge for wake-up calls, artisanal coffee, or any assistance needed during your stay.</p>
                 </div>
               </div>
-              <button className="mt-10 bg-white text-primary px-8 py-4 rounded-xl font-bold text-xs uppercase tracking-[0.2em] hover:bg-orange-50 transition-all self-start shadow-xl active:scale-95 cursor-pointer">
+              <button className="mt-10 bg-white text-primary px-8 py-3 rounded-md font-bold text-xs uppercase tracking-[0.2em] hover:bg-orange-50 transition-all self-start shadow-xl active:scale-95 cursor-pointer">
                 Learn More
               </button>
             </motion.div>
@@ -181,7 +181,7 @@ export default function OfferPage() {
                   { icon: <Waves size={20}/>, t: "Premium towels & toiletries provided" },
                   { icon: <ShieldCheck size={20}/>, t: "Medical-grade sanitization after use" }
                 ].map((item, i) => (
-                  <div key={i} className="flex gap-4 p-6 bg-zinc-50 rounded-2xl border border-zinc-100 hover:bg-white hover:shadow-lg transition-all duration-300">
+                  <div key={i} className="flex gap-4 p-6 bg-zinc-50 rounded-lg border border-zinc-100 hover:bg-white hover:shadow-lg transition-all duration-300">
                     <div className="text-primary shrink-0">{item.icon}</div>
                     <p className="text-sm font-bold text-zinc-800 leading-snug">{item.t}</p>
                   </div>
@@ -194,7 +194,7 @@ export default function OfferPage() {
               viewport={{ once: true }}
               className="order-1 lg:order-2"
             >
-              <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)] relative group">
+              <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)] relative group">
                 <img 
                   alt="Premium shower area" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[5s]" 
@@ -216,14 +216,14 @@ export default function OfferPage() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
             >
-              <div className="aspect-[4/3] rounded-[3rem] overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)] relative group">
+              <div className="aspect-[4/3] rounded-xl overflow-hidden shadow-[0_40px_80px_rgba(0,0,0,0.15)] relative group">
                 <img 
                   alt="Secure cloakroom storage" 
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-[5s]" 
                   src="https://lh3.googleusercontent.com/aida-public/AB6AXuBC7OCs2Kr0MudETdXSlWSocghPUahI5Pa5McnxQrAHT2vh5bZevO7fI0oIIjZ-tCrDDGez4z2KNuYOHll-znUHpAsHmTEMitP_GOrej2CyXGJxM7bBKbsWio07wt0O-Sg1YmOcQJre9X9miqJpuSopFHR83AFiklFOVyaQdbeNcEeHlgs6IkR7YRxHxIDvN2UtHIq23d-rIkGKiJGORE9QkebSYp5RMpJLr_wWS21ovGmKMFYkRhALy0cq6CVrd6gM1K1mZEuwuqw" 
                 />
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors"></div>
-                <div className="absolute top-10 left-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-2xl shadow-xl flex items-center gap-4 border border-white/50">
+                <div className="absolute top-10 left-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-lg shadow-xl flex items-center gap-4 border border-white/50">
                    <Warehouse className="text-primary" />
                    <div className="space-y-0.5">
                       <span className="block text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Storage Status</span>
@@ -248,7 +248,7 @@ export default function OfferPage() {
                 </p>
               </div>
 
-              <div className="bg-white rounded-[2.5rem] overflow-hidden border border-zinc-100 shadow-2xl shadow-zinc-200/50">
+              <div className="bg-white rounded-xl overflow-hidden border border-zinc-100 shadow-2xl shadow-zinc-200/50">
                 <table className="w-full text-left border-collapse">
                   <thead>
                     <tr className="bg-zinc-50 border-b border-zinc-100">
@@ -270,7 +270,7 @@ export default function OfferPage() {
                         </td>
                         <td className="px-8 py-6 text-zinc-500 text-sm font-light italic">{row.ex}</td>
                         <td className="px-8 py-6 text-right">
-                          <span className="bg-white px-4 py-2 rounded-xl text-primary font-black border border-orange-100 shadow-sm">
+                          <span className="bg-white px-4 py-2 rounded-md text-primary font-black border border-orange-100 shadow-sm">
                             {row.p}
                           </span>
                         </td>
@@ -279,7 +279,7 @@ export default function OfferPage() {
                   </tbody>
                 </table>
               </div>
-              <p className="text-sm text-zinc-400 italic bg-zinc-50 p-6 rounded-2xl border-l-4 border-zinc-200">
+              <p className="text-sm text-zinc-400 italic bg-zinc-50 p-6 rounded-lg border-l-4 border-zinc-200">
                 Pricing is per individual bag, per hour. Secure digital tags assigned for every item. Staffed 24/7.
               </p>
             </motion.div>
@@ -290,7 +290,7 @@ export default function OfferPage() {
       {/* CTA Section */}
       <section className="py-24">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="relative rounded-[3rem] overflow-hidden p-16 md:p-32 flex flex-col items-center text-center shadow-2xl">
+          <div className="relative rounded-xl overflow-hidden p-16 md:p-32 flex flex-col items-center text-center shadow-2xl">
             <img 
               alt="Serene Lounge" 
               className="absolute inset-0 w-full h-full object-cover scale-110 blur-[2px]" 
@@ -310,10 +310,10 @@ export default function OfferPage() {
                 Join 50,000+ urban explorers who trust Rest Refresh for their daily downtime. Book your pod in under 60 seconds.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
-                <button className="bg-primary text-white px-12 py-5 rounded-2xl font-bold text-lg shadow-[0_20px_50px_rgba(255,109,0,0.3)] hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                <button className="bg-primary text-white px-12 py-3 rounded-md font-bold text-base shadow-[0_20px_50px_rgba(255,109,0,0.3)] hover:scale-105 active:scale-95 transition-all cursor-pointer">
                   Book Your Slot Now
                 </button>
-                <button className="bg-white/10 backdrop-blur-md text-white px-12 py-5 rounded-2xl font-bold text-lg border border-white/20 hover:bg-white/20 active:scale-95 transition-all cursor-pointer">
+                <button className="bg-white/10 backdrop-blur-md text-white px-12 py-3 rounded-md font-bold text-base border border-white/20 hover:bg-white/20 active:scale-95 transition-all cursor-pointer">
                   Find a Sanctuary
                 </button>
               </div>

@@ -5,23 +5,23 @@ const neighborhoodCards = [
   {
     title: "Travel Guide",
     description: "Essential tips for navigating the city's best routes and transport links.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuCo71nX5JpJ7TOt644LhW_Pj6DHRYDAzq1XfM0cs1QhdfT65s8tKU9qpm_569vqAdRv-2oJWdZxLnLCfrqFIXrlAi4uaJeWZpdwcRYnkqV_009PLx-8XRWj0LHVgyIh9OqktFLCyfyzREy6oU8SXi6bXI7-Fhfs30imM7k8-31Mw-yghj4ytYMkpEpL2sHDQEmGaCk8SGX2UIksSy2fzA1ibQ5uWV66viwSmlkoJsoY3flSxRApgW-NzhFqr7DxcqX8EY_srKx9i8o"
+    image: "https://images.unsplash.com/photo-1602216056096-3b40cc0c9944?auto=format&fit=crop&q=80&w=1200"
   },
   {
     title: "Places to Go",
     description: "Curated list of quiet parks and vibrant business hubs within walking distance.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBfT2FSq-xMF-AUZ2GZVS8VJ7dFPpwdALxeaAcJiPai--N0dZ7oBPz_eLwhNM1BRnwXTy9D5cvbbVq3qD4aNdbyD0UrZdJVm2gEKNNrvR3F4ShcNLDCy4W9OSECMAREGME7_9Oi9z40nI38uGPdEpar7DNA7Ui-5EFkqWoekiT4sZ4kx-YF-LgWjPZ4MavRK1JtF6bBt8JcXTyPhuceeqJMDzbCjbVDf3LNKV3pqSjQFenEjwcALGA_s25W84UhTqVIfdHv2U6gu9s"
+    image: "https://images.unsplash.com/photo-1589983846997-04788035bc83?auto=format&fit=crop&q=80&w=1200"
   },
   {
     title: "Food Spots",
     description: "From quick artisanal coffee to fine dining, discover the taste of the district.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuAB964A9E3FKP-e8FFS-wmBvH6MsgHFJbbYX5XFXZKGWKik18mBsCeTmsQE50oB2ujp38jb4GIqQjMSfIuirSzyK6S5cPBOcnc57XH_PRJUdK1A6WQiFzxU8VOvl6lb5LilCg1Kf0nwLUg1eae-VbjZgeyvpu82gphYK0kPOVuzWiKCCtwENNbAi5oBGo1cpvaD6YGedgvoOXm1tcxmbxj34HZ64ujUtDpdKd87Syh2z57jrSUUdKdaicKtN2Mn4S5CDwPA3e9zcgc"
+    image: "https://images.unsplash.com/photo-1678781416302-d59ed9ed46d0?auto=format&fit=crop&q=80&w=1200"
   },
   {
     title: "Nearby Attractions",
     description: "Don't miss the iconic landmarks and hidden galleries just around the corner.",
-    image: "https://lh3.googleusercontent.com/aida-public/AB6AXuDF3ZJn-LE9jz9FgNI9OgK6Dr7k2SrXlsOVeyaaR_Z8HJ1eEgt1o8EI-k08IGv5sYCAHEhOrtBPj36jewrL4wVJI7-XnB3F6d9T6E2RDublMbrLkTw9ctr0WEcY_fQHmr59l39huyQx4LiIcw2RCIxbnIS13j1-vVtzH5dvm864yigjC4uSFytmLoATumYXP3qP3eO940eJo1lMChqvo6TrtD-txBFFuVs5e46lrbdjWg_LaqH16zwTmFFqTnL9VhzjzX86_wrDK7s"
-  }
+    image: "https://images.unsplash.com/photo-1650730005180-2c849af5d6cc?auto=format&fit=crop&q=80&w=1200"
+ }
 ];
 
 export default function Neighborhood() {
@@ -45,7 +45,7 @@ export default function Neighborhood() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className="group bg-white rounded-[2rem] overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-zinc-100/50 flex flex-col"
+              className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-2xl transition-all duration-500 border border-zinc-100/50 flex flex-col"
             >
               <div className="aspect-video overflow-hidden relative">
                 <img 
