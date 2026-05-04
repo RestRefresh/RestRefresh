@@ -19,14 +19,15 @@ export default function MapSection() {
           <iframe
             title="Vyttila Location Map"
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.172352163914!2d76.320473!3d9.970868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d0d1e3e7e73%3A0x2f90119339e3b9!2sVyttila%20Junction!5e0!3m2!1sen!2sin!4v1714722800000!5m2!1sen!2sin"
-            className="w-full h-full border-0 grayscale opacity-90 transition-opacity duration-500 group-hover:opacity-100"
+            className="w-full h-full border-0 grayscale brightness-110 contrast-125 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100"
             allowFullScreen
             loading="lazy"
             referrerPolicy="no-referrer-when-downgrade"
           ></iframe>
           
-          {/* Overlay gradient */}
-          <div className="absolute inset-0 bg-primary/5 pointer-events-none ring-1 ring-inset ring-black/5"></div>
+          {/* Overlay gradient - themed to the site */}
+          <div className="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-700"></div>
+          <div className="absolute inset-0 bg-white/10 pointer-events-none"></div>
           
           {/* Animated Pin */}
           <motion.div 

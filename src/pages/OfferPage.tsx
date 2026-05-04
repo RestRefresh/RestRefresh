@@ -1,5 +1,5 @@
 import { motion } from 'motion/react';
-import { Plus, X, ShieldCheck, Zap, Bell, Waves, Warehouse } from 'lucide-react';
+import { Plus, X, ShieldCheck, Zap, Bell, Waves, Warehouse, Lightbulb, Plug, Fan, Smartphone, GlassWater, Shirt, Archive, Fingerprint } from 'lucide-react';
 
 const hotspots = [
   { top: '28%', left: '45%', title: 'Climate Controlled', description: 'Precision AC and air filtration for your perfect environment.' },
@@ -11,7 +11,7 @@ export default function OfferPage() {
   return (
     <div className="pt-20">
       {/* Header Section */}
-      <section className="py-16">
+      <section className="pt-16 pb-4">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
@@ -26,7 +26,7 @@ export default function OfferPage() {
             transition={{ delay: 0.1 }}
             className="font-headline text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-900 leading-[1.1] mb-8"
           >
-            Your Private <span className="text-primary">Oasis</span><br/>In The Urban Chaos.
+           <span className="text-primary">Sleep Well.</span><br/>Travel Better.
           </motion.h1>
           <motion.p 
             initial={{ opacity: 0, y: 20 }}
@@ -34,13 +34,13 @@ export default function OfferPage() {
             transition={{ delay: 0.2 }}
             className="text-zinc-500 text-lg max-w-2xl font-light leading-relaxed"
           >
-            Choose from our curated selection of high-tech rest pods designed for peak recovery, deep focus, or a quick power nap between meetings.
+           Private sleeping pods for men and women - clean, comfortable, and bookable by the hour. Whether it's a short nap or a longer break, we've got a pod ready for you.
           </motion.p>
         </div>
       </section>
 
       {/* Bento Grid Services/Features */}
-      <section className="py-24">
+      <section className="pt-4 pb-24">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12 space-y-8">
           {/* Full Width Climate Controlled Hero */}
           <motion.div 
@@ -96,8 +96,8 @@ export default function OfferPage() {
                   <ShieldCheck size={32} className="text-primary group-hover:text-white" />
                 </div>
                 <div className="space-y-3">
-                  <h3 className="font-headline text-2xl font-bold text-zinc-900">Ultra Hygiene</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed font-light">Medical-grade UV-C sterilization and professional cleaning after every single session.</p>
+                  <h3 className="font-headline text-2xl font-bold text-zinc-900">Cleaned After Every Use</h3>
+                  <p className="text-zinc-500 text-sm leading-relaxed font-light">Each pod is cleaned and reset after every guest. Fresh linen, every time.</p>
                 </div>
               </div>
               <div className="pt-8">
@@ -117,15 +117,35 @@ export default function OfferPage() {
                   <Zap size={32} className="text-blue-500 group-hover:text-white" />
                 </div>
                 <div className="space-y-3">
-                  <h3 className="font-headline text-2xl font-bold text-zinc-900">Smart Charging</h3>
-                  <p className="text-zinc-700 text-sm leading-relaxed font-light">Universal fast-charging docks, wireless pads, and high-speed Wi-Fi in every sanctuary.</p>
+                  <h3 className="font-headline text-2xl font-bold text-zinc-900">What's Inside Your Pod</h3>
+                  <p className="text-zinc-700 text-sm leading-relaxed font-light">Personal lighting, plug point, small fan, mobile holder, bottle holder, dress hook, and a storage box underneath - everything you need, nothing you don't.</p>
                 </div>
               </div>
               <div className="flex -space-x-3 pt-8">
-                {[1,2,3,4].map(i => (
-                  <div key={i} className="w-10 h-10 rounded-full border-4 border-white bg-blue-100 flex items-center justify-center text-[10px] font-bold text-blue-500 shadow-sm overflow-hidden animate-pulse">
-                    <img src={`https://i.pravatar.cc/100?u=user${i}`} alt="user" className="w-full h-full object-cover" />
-                  </div>
+                {[
+                  { icon: <Lightbulb size={16} />, label: 'Lighting' },
+                  { icon: <Plug size={16} />, label: 'Power' },
+                  { icon: <Fan size={16} />, label: 'Fan' },
+                  { icon: <Smartphone size={16} />, label: 'Mobile Holder' },
+                  { icon: <GlassWater size={16} />, label: 'Bottle Holder' },
+                  { icon: <Shirt size={16} />, label: 'Hooks' },
+                  { icon: <Archive size={16} />, label: 'Storage' }
+                ].map((item, i) => (
+                  <motion.div 
+                    key={i} 
+                    initial={{ opacity: 0, x: -10 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.1 + (i * 0.05) }}
+                    className="w-11 h-11 rounded-full border-4 border-white bg-white flex items-center justify-center text-blue-600 shadow-sm transition-all duration-300 hover:bg-blue-600 hover:text-white group/icon relative hover:z-30 hover:-translate-y-1"
+                  >
+                    <div className="group-hover/icon:scale-110 transition-transform">
+                      {item.icon}
+                    </div>
+                    <div className="absolute -top-10 left-1/2 -translate-x-1/2 bg-zinc-900 text-[10px] text-white px-2.5 py-1.5 rounded-md opacity-0 invisible group-hover/icon:opacity-100 group-hover/icon:visible transition-all whitespace-nowrap z-40 shadow-xl">
+                      {item.label}
+                    </div>
+                  </motion.div>
                 ))}
               </div>
             </motion.div>
@@ -139,11 +159,11 @@ export default function OfferPage() {
             >
               <div className="space-y-8">
                 <div className="w-16 h-16 bg-white/20 backdrop-blur-sm rounded-lg flex items-center justify-center">
-                  <Bell size={32} className="text-white" />
+                  <Fingerprint size={32} className="text-white" />
                 </div>
                 <div className="space-y-3">
-                  <h3 className="font-headline text-3xl font-bold">24/7 Concierge</h3>
-                  <p className="text-white/80 text-sm leading-relaxed font-light">Digital concierge for wake-up calls, artisanal coffee, or any assistance needed during your stay.</p>
+                  <h3 className="font-headline text-3xl font-bold">Your Space, Your Privacy</h3>
+                  <p className="text-white/80 text-sm leading-relaxed font-light">Every pod has its own curtain for complete privacy. Pods are for single occupancy. Children under 10 may accompany an adult at the receptionist's discretion.</p>
                 </div>
               </div>
               <button className="mt-10 bg-white text-primary px-8 py-3 rounded-md font-bold text-xs uppercase tracking-[0.2em] hover:bg-orange-50 transition-all self-start shadow-xl active:scale-95 cursor-pointer">
@@ -210,7 +230,7 @@ export default function OfferPage() {
       {/* Cloakroom Section */}
       <section className="py-24 border-t border-zinc-100" id="cloakroom">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-start">
             <motion.div 
               initial={{ opacity: 0, scale: 0.9 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -304,17 +324,14 @@ export default function OfferPage() {
               className="relative z-10 space-y-10"
             >
               <h2 className="font-headline text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                Ready for a <span className="text-primary">Refresh?</span>
+                Time to <span className="text-primary">Rest</span>, Time to <span className="text-primary">Refresh</span>?
               </h2>
               <p className="text-white/80 max-w-2xl mx-auto text-xl font-light leading-relaxed">
-                Join 50,000+ urban explorers who trust Rest Refresh for their daily downtime. Book your pod in under 60 seconds.
+               Pods, showers, and luggage storage - all under one roof, open around the clock.
               </p>
               <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
                 <button className="bg-primary text-white px-12 py-3 rounded-md font-bold text-base shadow-[0_20px_50px_rgba(255,109,0,0.3)] hover:scale-105 active:scale-95 transition-all cursor-pointer">
-                  Book Your Slot Now
-                </button>
-                <button className="bg-white/10 backdrop-blur-md text-white px-12 py-3 rounded-md font-bold text-base border border-white/20 hover:bg-white/20 active:scale-95 transition-all cursor-pointer">
-                  Find a Sanctuary
+                  Book Now
                 </button>
               </div>
             </motion.div>

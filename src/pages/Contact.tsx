@@ -1,7 +1,102 @@
-import { motion } from 'motion/react';
-import { Instagram, Linkedin, MapPin, Mail, MessageSquare, Camera, Briefcase } from 'lucide-react';
+import { motion, AnimatePresence } from 'motion/react';
+import { Instagram, Linkedin, MapPin, Mail, MessageSquare, Camera, Briefcase, CheckCircle2, Loader2, AlertCircle, ChevronDown } from 'lucide-react';
+import { useForm } from 'react-hook-form';
+import { zodResolver } from '@hookform/resolvers/zod';
+import * as z from 'zod';
+import React, { useState } from 'react';
+
+const contactFormSchema = z.object({
+  fullName: z.string().min(2, { message: "Name must be at least 2 characters." }),
+  email: z.string().email({ message: "Please enter a valid email address." }),
+  inquiryType: z.string().min(1, { message: "Please select an inquiry type." }),
+  message: z.string().min(10, { message: "Message must be at least 10 characters." }),
+});
+
+type ContactFormValues = z.infer<typeof contactFormSchema>;
+
+const faqs = [
+  {
+    question: "How do the sleeping pods work?",
+    answer: "Our pods are private, sound-insulated cabins equipped with a comfortable bed, climate control, charging ports, and dimmable lighting. You book for the hours you need, receive a digital key, and enjoy uninterrupted rest."
+  },
+  {
+    question: "Is it safe for solo travelers and luggage?",
+    answer: "Safety is our top priority. We have 24/7 security personnel, CCTV in public areas, and secure digital locks on every pod. Our cloakroom is supervised and uses a tagged system to ensure your belongings are safe while you move freely."
+  },
+  {
+    question: "Can I book for just an hour?",
+    answer: "Yes! We understand travel schedules are unpredictable. You can book for as little as one hour or as long as you need. There are no fixed check-in/out times—the space is ready when you are."
+  },
+  {
+    question: "How do you maintain hygiene?",
+    answer: "Every pod and shower space undergoes a strict medical-grade cleaning protocol after every use. We use high-quality, fresh linens for every guest and maintain hospital-standard ventilation systems for constant fresh air."
+  }
+];
+
+interface FAQItemProps {
+  key?: React.Key;
+  question: string;
+  answer: string;
+}
+
+function FAQItem({ question, answer }: FAQItemProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  return (
+    <div className="bg-white rounded-md border border-zinc-200 overflow-hidden shadow-sm hover:shadow-md transition-all">
+      <button 
+        onClick={() => setIsOpen(!isOpen)}
+        className="w-full flex justify-between items-center p-6 text-left font-bold text-lg cursor-pointer"
+      >
+        {question}
+        <ChevronDown className={`transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ height: 0, opacity: 0 }}
+            animate={{ height: "auto", opacity: 1 }}
+            exit={{ height: 0, opacity: 0 }}
+            className="px-6 pb-6 text-zinc-600 leading-relaxed font-light"
+          >
+            {answer}
+          </motion.div>
+        )}
+      </AnimatePresence>
+    </div>
+  );
+}
 
 export default function Contact() {
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSuccess, setIsSuccess] = useState(false);
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    reset
+  } = useForm<ContactFormValues>({
+    resolver: zodResolver(contactFormSchema),
+    defaultValues: {
+      fullName: '',
+      email: '',
+      inquiryType: 'General Inquiry',
+      message: '',
+    }
+  });
+
+  const onSubmit = async (data: ContactFormValues) => {
+    setIsSubmitting(true);
+    // Simulate API call
+    console.log('Sending enquiry to info@restrefresh.in:', data);
+    await new Promise(resolve => setTimeout(resolve, 2000));
+    setIsSubmitting(false);
+    setIsSuccess(true);
+    reset();
+    
+    // Reset success message after 5 seconds
+    setTimeout(() => setIsSuccess(false), 5000);
+  };
   return (
     <div className="pt-20">
       {/* Hero Section / Editorial Header */}
@@ -14,10 +109,10 @@ export default function Contact() {
           >
             <span className="text-primary font-bold text-sm tracking-widest uppercase mb-4 block">Get in Touch</span>
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-900 mb-6 font-headline">
-              Let’s find your <span className="text-primary">quiet space</span>.
+              Contact <span className="text-primary">Us</span>
             </h1>
             <p className="text-zinc-500 text-lg leading-relaxed max-w-lg font-light">
-              Whether you need a quick recharge or a long-term collaboration, our concierge team is here to assist with your sanctuary requirements.
+            <strong>Need help? Have a question? Or just want to check availability?</strong> <br /> We’re here for you—anytime you need a place to rest, refresh, or store your luggage.
             </p>
           </motion.div>
         </div>
@@ -31,36 +126,85 @@ export default function Contact() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.1 }}
-            className="lg:col-span-7 bg-white p-8 md:p-12 rounded-xl shadow-[0_20px_40px_rgba(26,28,28,0.04)] border border-zinc-100/50"
+            className="lg:col-span-7 bg-white p-8 md:p-12 rounded-xl shadow-[0_20px_40px_rgba(26,28,28,0.04)] border border-zinc-100/50 relative overflow-hidden"
           >
+            <AnimatePresence>
+              {isSuccess && (
+                <motion.div 
+                  initial={{ opacity: 0, y: -20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  exit={{ opacity: 0, y: -20 }}
+                  className="absolute inset-0 z-50 bg-white/95 backdrop-blur-sm flex flex-col items-center justify-center text-center p-8"
+                >
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ scale: 1 }}
+                    transition={{ type: "spring", damping: 12 }}
+                  >
+                    <CheckCircle2 size={80} className="text-green-500 mb-6" />
+                  </motion.div>
+                  <h3 className="text-3xl font-bold text-zinc-900 mb-4 tracking-tight">Message Received!</h3>
+                  <p className="text-zinc-500 max-w-sm mb-8 font-light">
+                    Your enquiry has been sent to <strong>info@restrefresh.in</strong>. Our team will get back to you within 24 hours.
+                  </p>
+                  <button 
+                    onClick={() => setIsSuccess(false)}
+                    className="text-primary font-bold uppercase text-xs tracking-widest hover:underline"
+                  >
+                    Send another message
+                  </button>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             <h2 className="text-3xl font-bold mb-10 text-zinc-900 tracking-tight">Send a Message</h2>
-            <form className="space-y-8" onSubmit={(e) => e.preventDefault()}>
+            <form className="space-y-8" onSubmit={handleSubmit(onSubmit)}>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <div className="space-y-3">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 px-1">Full Name</label>
+                  <div className="flex justify-between items-center px-1">
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Full Name</label>
+                    {errors.fullName && <span className="text-[10px] text-red-500 font-bold uppercase tracking-tighter flex items-center gap-1">
+                      <AlertCircle size={10} /> {errors.fullName.message}
+                    </span>}
+                  </div>
                   <input 
-                    className="w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none shadow-inner" 
+                    {...register('fullName')}
+                    className={`w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 transition-all outline-none shadow-inner ${errors.fullName ? 'focus:ring-red-100' : 'focus:ring-primary/20 focus:bg-white'}`}
                     placeholder="John Doe" 
                     type="text"
                   />
                 </div>
                 <div className="space-y-3">
-                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 px-1">Email Address</label>
+                  <div className="flex justify-between items-center px-1">
+                    <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Email Address</label>
+                    {errors.email && <span className="text-[10px] text-red-500 font-bold uppercase tracking-tighter flex items-center gap-1">
+                      <AlertCircle size={10} /> {errors.email.message}
+                    </span>}
+                  </div>
                   <input 
-                    className="w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none shadow-inner" 
-                    placeholder="john@example.com" 
+                    {...register('email')}
+                    className={`w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 transition-all outline-none shadow-inner ${errors.email ? 'focus:ring-red-100' : 'focus:ring-primary/20 focus:bg-white'}`}
+                    placeholder="info@restrefresh.in" 
                     type="email"
                   />
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 px-1">Inquiry Type</label>
+                <div className="flex justify-between items-center px-1">
+                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Inquiry Type</label>
+                  {errors.inquiryType && <span className="text-[10px] text-red-500 font-bold uppercase tracking-tighter flex items-center gap-1">
+                    <AlertCircle size={10} /> {errors.inquiryType.message}
+                  </span>}
+                </div>
                 <div className="relative">
-                  <select className="w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none appearance-none shadow-inner">
-                    <option>General Inquiry</option>
-                    <option>Pod Booking Support</option>
-                    <option>Corporate Partnerships</option>
-                    <option>Location Suggestions</option>
+                  <select 
+                    {...register('inquiryType')}
+                    className="w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none appearance-none shadow-inner"
+                  >
+                    <option value="General Inquiry">General Inquiry</option>
+                    <option value="Pod Booking Support">Pod Booking Support</option>
+                    <option value="Corporate Partnerships">Corporate Partnerships</option>
+                    <option value="Location Suggestions">Location Suggestions</option>
                   </select>
                   <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-400">
                     <MessageSquare size={16} />
@@ -68,17 +212,29 @@ export default function Contact() {
                 </div>
               </div>
               <div className="space-y-3">
-                <label className="text-xs font-bold uppercase tracking-widest text-zinc-400 px-1">Your Message</label>
+                <div className="flex justify-between items-center px-1">
+                  <label className="text-xs font-bold uppercase tracking-widest text-zinc-400">Your Message</label>
+                  {errors.message && <span className="text-[10px] text-red-500 font-bold uppercase tracking-tighter flex items-center gap-1">
+                    <AlertCircle size={10} /> {errors.message.message}
+                  </span>}
+                </div>
                 <textarea 
-                  className="w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 focus:ring-primary/20 focus:bg-white transition-all outline-none resize-none shadow-inner" 
+                  {...register('message')}
+                  className={`w-full bg-zinc-50 border-none rounded-lg px-6 py-4 focus:ring-2 transition-all outline-none resize-none shadow-inner ${errors.message ? 'focus:ring-red-100' : 'focus:ring-primary/20 focus:bg-white'}`}
                   placeholder="How can we help you rest?" 
                   rows={5}
                 ></textarea>
               </div>
               <button 
-                className="bg-primary hover:scale-[1.02] text-white px-10 py-3 rounded-md text-base font-bold transition-all duration-300 active:scale-95 shadow-xl shadow-primary/20 cursor-pointer"
+                disabled={isSubmitting}
+                className={`bg-primary hover:scale-[1.02] text-white px-10 py-3 rounded-md text-base font-bold transition-all duration-300 active:scale-95 shadow-xl shadow-primary/20 flex items-center gap-3 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'cursor-pointer'}`}
               >
-                Send Inquiry
+                {isSubmitting ? (
+                  <>
+                    <Loader2 size={18} className="animate-spin" />
+                    Sending...
+                  </>
+                ) : 'Send Inquiry'}
               </button>
             </form>
           </motion.div>
@@ -125,9 +281,9 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-bold text-zinc-900 text-lg">Main HQ</h4>
+                  <h4 className="font-bold text-zinc-900 text-lg">Rest Refresh Vyttila</h4>
                   <p className="text-zinc-500 text-sm leading-relaxed font-light">
-                    122 Sanctuary Blvd, Zen District<br/>San Francisco, CA 94103
+                    Above Vyttila Metro Station,<br/>Kochi, Kerala 682019
                   </p>
                 </div>
               </div>
@@ -138,19 +294,41 @@ export default function Contact() {
                 <div className="space-y-1">
                   <h4 className="font-bold text-zinc-900 text-lg">Digital Concierge</h4>
                   <p className="text-zinc-500 text-sm leading-relaxed font-light">
-                    hello@restrefresh.com<br/>support@restrefresh.com
+                    info@restrefresh.in<br/>support@restrefresh.in
                   </p>
                 </div>
               </div>
               <div className="w-full h-56 rounded-xl overflow-hidden bg-zinc-200 relative border border-zinc-100 shadow-inner group">
-                <img 
-                  className="w-full h-full object-cover grayscale transition-all duration-700 group-hover:grayscale-0 group-hover:scale-105" 
-                  alt="City map" 
-                  src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXnAwEC8Yo8y1x2QSEoCkkYkGOX1xQqUZy1N1TnJV-N1XTxQTkova1WbAP-tGyuhkMIHmiDlSMG-2VCWHCbeqwng803U967a5Hnh71gC39Er_tz2eEDsHtUb9SU50w4kxuJJLS_hL1hGBnaajeaNNsCB5ETN_JXpa7ESaaOCfJl6Pzk8kbmEYQAhJvSl7MuEZz7gi7vbccjmpjn13FBnDlKiFeKat0JVDJaZdkyLTRvd0g_tGJF_MvYM2-xQS0xFtpM66LV8IBXIM" 
-                />
-                <div className="absolute inset-0 bg-primary/5 pointer-events-none"></div>
+                <iframe
+                  title="Vyttila Location Map"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.172352163914!2d76.320473!3d9.970868!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080d0d1e3e7e73%3A0x2f90119339e3b9!2sVyttila%20Junction!5e0!3m2!1sen!2sin!4v1714722800000!5m2!1sen!2sin"
+                  className="w-full h-full border-0 grayscale brightness-110 contrast-125 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100"
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                ></iframe>
+                
+                <div className="absolute inset-0 bg-primary/10 mix-blend-multiply pointer-events-none group-hover:opacity-0 transition-opacity duration-700"></div>
+                <div className="absolute inset-0 bg-white/10 pointer-events-none"></div>
               </div>
             </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* FAQ Section */}
+      <section className="py-24 bg-zinc-50 border-y border-zinc-100">
+        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
+          <div className="max-w-3xl mx-auto">
+            <div className="text-center mb-16 space-y-4">
+              <span className="text-primary font-bold text-sm tracking-widest uppercase block">Common Questions</span>
+              <h2 className="text-4xl md:text-5xl font-bold tracking-tight text-zinc-900">Frequently Asked</h2>
+            </div>
+            <div className="space-y-6">
+              {faqs.map((faq, i) => (
+                <FAQItem key={i} question={faq.question} answer={faq.answer} />
+              ))}
+            </div>
           </div>
         </div>
       </section>
