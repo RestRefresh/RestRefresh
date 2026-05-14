@@ -4,6 +4,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import React, { useState } from 'react';
+import CtaSection from '../components/CtaSection';
 
 const contactFormSchema = z.object({
   fullName: z.string().min(2, { message: "Name must be at least 2 characters." }),
@@ -56,7 +57,7 @@ function FAQItem({ question, answer }: FAQItemProps) {
             initial={{ height: 0, opacity: 0 }}
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
-            className="px-6 pb-6 text-zinc-600 leading-relaxed font-light"
+            className="px-6 pb-6 text-zinc-600 leading-relaxed font-normal"
           >
             {answer}
           </motion.div>
@@ -87,15 +88,44 @@ export default function Contact() {
 
   const onSubmit = async (data: ContactFormValues) => {
     setIsSubmitting(true);
-    // Simulate API call
-    console.log('Sending enquiry to info@restrefresh.in:', data);
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    setIsSubmitting(false);
-    setIsSuccess(true);
-    reset();
     
-    // Reset success message after 5 seconds
-    setTimeout(() => setIsSuccess(false), 5000);
+    try {
+      const endpoint = import.meta.env.VITE_FORMSPREEE_ENDPOINT || "https://formspree.io/f/mqakevqp"; 
+      
+      const response = await fetch(endpoint, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          name: data.fullName,
+          email: data.email,
+          subject: data.inquiryType,
+          message: data.message,
+          _subject: `[Rest Refresh] Inquiry: ${data.inquiryType}`
+        })
+      });
+
+      if (response.ok) {
+        setIsSuccess(true);
+        reset();
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      console.error('Formspree error:', error);
+      // Fallback
+      const subject = encodeURIComponent(`[Rest Refresh] Inquiry: ${data.inquiryType}`);
+      const body = encodeURIComponent(
+        `Full Name: ${data.fullName}\nEmail: ${data.email}\nInquiry Type: ${data.inquiryType}\n\nMessage:\n${data.message}`
+      );
+      window.location.href = `mailto:nidheeshnvb@gmail.com?subject=${subject}&body=${body}`;
+    } finally {
+      setIsSubmitting(false);
+      // Reset success message after 5 seconds
+      setTimeout(() => setIsSuccess(false), 5000);
+    }
   };
   return (
     <div className="pt-20">
@@ -111,8 +141,8 @@ export default function Contact() {
             <h1 className="text-5xl md:text-7xl font-extrabold tracking-tight text-zinc-900 mb-6 font-headline">
               Contact <span className="text-primary">Us</span>
             </h1>
-            <p className="text-zinc-500 text-lg leading-relaxed max-w-lg font-light">
-            <strong>Need help? Have a question? Or just want to check availability?</strong> <br /> We’re here for you—anytime you need a place to rest, refresh, or store your luggage.
+            <p className="text-zinc-500 text-lg leading-relaxed max-w-lg font-normal">
+            <strong>Need help? Have a question? Or just want to check availability?</strong> <br /> We’re here for you - anytime you need a place to rest, refresh, or store your luggage.
             </p>
           </motion.div>
         </div>
@@ -144,8 +174,8 @@ export default function Contact() {
                     <CheckCircle2 size={80} className="text-green-500 mb-6" />
                   </motion.div>
                   <h3 className="text-3xl font-bold text-zinc-900 mb-4 tracking-tight">Message Received!</h3>
-                  <p className="text-zinc-500 max-w-sm mb-8 font-light">
-                    Your enquiry has been sent to <strong>info@restrefresh.in</strong>. Our team will get back to you within 24 hours.
+                  <p className="text-zinc-500 max-w-sm mb-8 font-normal">
+                    Your enquiry has been sent to <strong>nidheeshnvb@gmail.com</strong>. Our team will get back to you within 24 hours.
                   </p>
                   <button 
                     onClick={() => setIsSuccess(false)}
@@ -203,8 +233,8 @@ export default function Contact() {
                   >
                     <option value="General Inquiry">General Inquiry</option>
                     <option value="Pod Booking Support">Pod Booking Support</option>
-                    <option value="Corporate Partnerships">Corporate Partnerships</option>
-                    <option value="Location Suggestions">Location Suggestions</option>
+                    <option value="Explore Partnership Opportunity">Explore Partnership Opportunity</option>
+                    <option value="Feedback">Feedback</option>
                   </select>
                   <div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none text-zinc-400">
                     <MessageSquare size={16} />
@@ -251,14 +281,24 @@ export default function Contact() {
               <div className="relative z-10 space-y-6">
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold tracking-tight">Social Media Support?</h3>
-                  <p className="text-white/80 font-light text-sm max-w-[280px]">Connect with us on social media for the latest updates and direct messaging support.</p>
+                  <p className="text-white/80 font-normal text-sm max-w-[280px]">Connect with us on social media for the latest updates and direct messaging support.</p>
                 </div>
                 <div className="flex flex-col sm:flex-row gap-4">
-                  <a className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-3 rounded-md font-bold hover:bg-orange-50 transition-all text-sm shadow-lg active:scale-95" href="#">
+                  <a 
+                    className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-3 rounded-md font-bold hover:bg-orange-50 transition-all text-sm shadow-lg active:scale-95" 
+                    href="https://www.instagram.com/restrefreshekm/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
                     <Camera size={18} />
                     Instagram
                   </a>
-                  <a className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-3 rounded-md font-bold hover:bg-orange-50 transition-all text-sm shadow-lg active:scale-95" href="#">
+                  <a 
+                    className="inline-flex items-center justify-center gap-2 bg-white text-primary px-8 py-3 rounded-md font-bold hover:bg-orange-50 transition-all text-sm shadow-lg active:scale-95" 
+                    href="https://www.linkedin.com/company/rest-refresh/" 
+                    target="_blank" 
+                    rel="noreferrer"
+                  >
                     <Briefcase size={18} />
                     LinkedIn
                   </a>
@@ -281,9 +321,11 @@ export default function Contact() {
                   <MapPin size={24} />
                 </div>
                 <div className="space-y-1">
-                  <h4 className="font-bold text-zinc-900 text-lg">Rest Refresh Vyttila</h4>
-                  <p className="text-zinc-500 text-sm leading-relaxed font-light">
-                    Above Vyttila Metro Station,<br/>Kochi, Kerala 682019
+                  <h4 className="font-bold text-zinc-900 text-lg">Rest Refresh</h4>
+                  <p className="text-zinc-500 text-sm leading-relaxed font-normal">
+                    Style Plaza Building, <br/>
+                    Near South Indian Bank, Vyttila, <br/>
+                    Ernakulam, Kerala 682019
                   </p>
                 </div>
               </div>
@@ -293,8 +335,8 @@ export default function Contact() {
                 </div>
                 <div className="space-y-1">
                   <h4 className="font-bold text-zinc-900 text-lg">Digital Concierge</h4>
-                  <p className="text-zinc-500 text-sm leading-relaxed font-light">
-                    info@restrefresh.in<br/>support@restrefresh.in
+                  <p className="text-zinc-500 text-sm leading-relaxed font-normal">
+                    info@restrefresh.in
                   </p>
                 </div>
               </div>
@@ -334,22 +376,7 @@ export default function Contact() {
       </section>
 
       {/* CTA Section */}
-      <section className="mb-32">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="bg-zinc-900 rounded-xl p-20 text-center relative overflow-hidden shadow-2xl">
-          <div className="absolute top-0 left-0 w-full h-full bg-[radial-gradient(circle_at_center,_var(--tw-gradient-stops))] from-primary/20 via-transparent to-transparent opacity-50"></div>
-          <div className="relative z-10 space-y-8">
-            <h2 className="text-white text-4xl md:text-6xl font-black mb-6 tracking-tight">Ready to find your center?</h2>
-            <p className="text-white/60 max-w-xl mx-auto mb-10 text-xl font-light leading-relaxed">
-              Experience our pods for yourself. Book your first session at any of our city locations.
-            </p>
-            <button className="bg-primary text-white px-12 py-3 rounded-md font-bold text-base hover:scale-105 active:scale-95 transition-all shadow-2xl shadow-primary/30 cursor-pointer">
-              Find a Pod Near You
-            </button>
-          </div>
-        </div>
-      </div>
-      </section>
+      <CtaSection />
     </div>
   );
 }

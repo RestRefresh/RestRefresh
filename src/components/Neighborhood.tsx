@@ -32,7 +32,7 @@ export default function Neighborhood() {
           <h2 className="text-3xl md:text-5xl font-headline font-extrabold tracking-tight text-zinc-900 leading-tight">
             Explore the Neighborhood
           </h2>
-          <p className="text-zinc-500 font-light max-w-2xl mx-auto leading-relaxed text-lg">
+          <p className="text-zinc-500 font-normal max-w-2xl mx-auto leading-relaxed text-lg">
             Make the most of your stay. Discover local gems and navigate the city like a pro.
           </p>
         </div>
@@ -59,7 +59,7 @@ export default function Neighborhood() {
                 <h4 className="font-headline font-bold text-xl text-zinc-900 group-hover:text-primary transition-colors">
                   {card.title}
                 </h4>
-                <p className="text-sm text-zinc-500 font-light leading-relaxed flex-grow">
+                <p className="text-sm text-zinc-500 font-normal leading-relaxed flex-grow">
                   {card.description}
                 </p>
                 <a href="#" className="mt-4 flex items-center gap-1 text-sm font-bold text-primary group-hover:underline">

@@ -80,7 +80,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   className="bg-white shadow-xl rounded-md border border-zinc-100 overflow-hidden"
                 >
-                  <Link className="block px-5 py-3 text-xs font-bold text-zinc-700 hover:bg-primary hover:text-white transition-colors uppercase" to="/offer">PRIVATE PODS</Link>
+                  <Link className="block px-5 py-3 text-xs font-bold text-zinc-700 hover:bg-primary hover:text-white transition-colors uppercase" to="/offer#refresh">PRIVATE PODS</Link>
                   <Link className="block px-5 py-3 text-xs font-bold text-zinc-700 hover:bg-primary hover:text-white transition-colors uppercase" to="/offer#refresh">SHOWER & REFRESH</Link>
                   <Link className="block px-5 py-3 text-xs font-bold text-zinc-700 hover:bg-primary hover:text-white transition-colors uppercase" to="/offer#cloakroom">SECURE STORAGE</Link>
                 </motion.div>
@@ -140,7 +140,7 @@ export default function Navbar() {
               ))}
               <div className="pt-4 space-y-4">
                 <span className="text-[10px] font-bold text-zinc-400 uppercase tracking-widest block mb-4">What We Offer</span>
-                <Link className="block text-xl font-bold text-zinc-600" to="/offer">Private Pods</Link>
+                <Link className="block text-xl font-bold text-zinc-600" to="/offer#refresh">Private Pods</Link>
                 <Link className="block text-xl font-bold text-zinc-600" to="/offer#refresh">Shower & Refresh</Link>
                 <Link className="block text-xl font-bold text-zinc-600" to="/offer#cloakroom">Secure Storage</Link>
               </div>

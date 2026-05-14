@@ -15,7 +15,7 @@ export default function Home() {
       <Process />
       <Offer />
       <MapSection />
-      <Neighborhood />
+      {/* <Neighborhood /> */}
     </>
   );
 }

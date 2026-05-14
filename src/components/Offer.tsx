@@ -19,8 +19,8 @@ export default function Offer() {
           <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-white leading-tight mb-4 tracking-tight">
             First Session? Take <span className="text-orange-200">10% OFF</span>
           </h2>
-          <p className="text-orange-100 text-xl font-light max-w-md mx-auto lg:mx-0">
-            Experience the sanctuary with code: <span className="font-bold underline decoration-orange-300/50 underline-offset-8">ELEVATE10</span>
+          <p className="text-orange-100 text-xl font-normal max-w-md mx-auto lg:mx-0">
+            Make sure you get a good reset with code: <span className="font-bold underline decoration-orange-300/50 underline-offset-8">RR10</span>
           </p>
         </motion.div>
         
@@ -34,7 +34,7 @@ export default function Offer() {
             <Gift className="text-orange-300 shrink-0" size={28} />
             <div className="space-y-0.5">
               <span className="block text-[10px] uppercase tracking-widest opacity-70 font-bold">Promo Code</span>
-              <span className="text-xl font-black tracking-[0.2em]">ELEVATE10</span>
+              <span className="text-xl font-black tracking-[0.2em]">RR10</span>
             </div>
           </div>
           <Link 

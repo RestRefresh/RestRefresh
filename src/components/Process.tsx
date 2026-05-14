@@ -4,17 +4,14 @@ const steps = [
   {
     number: "01",
     tag: "Open 24x7",
-    description: "Based on client results across industries including e-commerce, tech, and service-based businesses."
   },
   {
     number: "02",
     tag: "Women-only dormitory available",
-    description: "See measurable growth within six months of using our tailored micro-space solutions."
   },
   {
     number: "03",
     tag: "ID-verified entry",
-    description: "Successfully implement our recommended strategies with 24/7 concierge support."
   }
 ];
 
@@ -52,9 +49,6 @@ export default function Process() {
               <span className="text-sm font-bold font-headline uppercase tracking-[0.3em] text-zinc-500 mb-6 bg-white/50 px-4 py-1 rounded-full backdrop-blur-sm">
                 {step.tag}
               </span>
-              <p className="text-zinc-700 text-base leading-relaxed font-light max-w-[280px]">
-                {step.description}
-              </p>
             </motion.div>
           ))}
         </div>

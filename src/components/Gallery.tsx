@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
-import { X, ChevronLeft, ChevronRight, Bed, Briefcase, Coffee, Eye } from 'lucide-react';
+import { X, ChevronLeft, ChevronRight, Bed, Briefcase, ShowerHead, Eye } from 'lucide-react';
+import { Link } from 'react-router-dom';
 
 const galleryItems = [
   {
@@ -9,6 +10,7 @@ const galleryItems = [
     tag: "Rest Pods",
     title: "Quiet Zones: Private pods optimized for deep rest.",
     buttonText: "Book Pod",
+    path: "/offer#pods",
     icon: <Bed className="text-zinc-900" size={24} />
   },
   {
@@ -22,6 +24,7 @@ const galleryItems = [
     tag: "Cloakroom",
     title: "Secure Storage: Staff-managed storage for your peace of mind.",
     buttonText: "Check Rates",
+    path: "/offer#cloakroom",
     icon: <Briefcase className="text-zinc-900" size={24} />
   },
   {
@@ -32,10 +35,11 @@ const galleryItems = [
   {
     type: "text",
     bgColor: "bg-[#FFF0D1]",
-    tag: "Refresh Cafe",
-    title: "The Pitstop: Recharge yourself with premium coffee and snacks.",
-    buttonText: "View Menu",
-    icon: <Coffee className="text-zinc-900" size={24} />
+    tag: "Refresh",
+    title: "Shower & Reset: Walk in, freshen up, walk out.",
+    buttonText: "LEARN MORE",
+    path: "/offer#refresh",
+    icon: <ShowerHead className="text-zinc-900" size={24} />
   },
   {
     type: "image",
@@ -80,9 +84,11 @@ export default function Gallery() {
               The Gallery Collection
             </h2>
           </div>
-          <button className="text-zinc-900 font-headline font-bold border-b-2 border-zinc-900 pb-1 hover:text-primary hover:border-primary transition-all cursor-pointer">
-            View All Spaces
-          </button>
+          <Link to="/offer">
+            <button className="text-zinc-900 font-headline font-bold border-b-2 border-zinc-900 pb-1 hover:text-primary hover:border-primary transition-all cursor-pointer">
+              View All Spaces
+            </button>
+          </Link>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
@@ -111,9 +117,11 @@ export default function Gallery() {
                     {item.title}
                   </h3>
                   <div className="mt-auto">
-                    <button className="bg-black text-white px-8 py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:scale-105 active:scale-95 transition-all cursor-pointer">
-                      {item.buttonText}
-                    </button>
+                    <Link to={item.path || '#'}>
+                      <button className="bg-black text-white px-8 py-3 rounded-lg text-[10px] font-bold uppercase tracking-widest hover:bg-primary hover:scale-105 active:scale-95 transition-all cursor-pointer">
+                        {item.buttonText}
+                      </button>
+                    </Link>
                   </div>
                 </div>
               ) : (

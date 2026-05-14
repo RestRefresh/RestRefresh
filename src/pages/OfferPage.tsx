@@ -1,7 +1,8 @@
 import { motion, AnimatePresence } from 'motion/react';
-import { Plus, X, ShieldCheck, Zap, Bell, Waves, Warehouse, Lightbulb, Plug, Fan, Smartphone, GlassWater, Shirt, Archive, Fingerprint, Eye, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Plus, X, ShieldCheck, Zap, Bell, Waves, Warehouse, Lightbulb, Plug, Fan, Smartphone, GlassWater, Shirt, Archive, Fingerprint, Eye, ChevronLeft, ChevronRight, ShowerHead, Bath, Sparkles, Droplets } from 'lucide-react';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import CtaSection from '../components/CtaSection';
 
 const hotspots = [
   { top: '35%', left: '42%', title: 'Climate Controlled', description: 'Precision AC and air filtration for your perfect environment.' },
@@ -50,7 +51,7 @@ export default function OfferPage() {
   return (
     <div className="pt-20">
       {/* Header Section */}
-      <section className="pt-16 pb-4">
+      <section id="pods" className="pt-16 pb-4">
         <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
           <motion.span 
             initial={{ opacity: 0, y: 10 }}
@@ -71,7 +72,7 @@ export default function OfferPage() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ delay: 0.2 }}
-            className="text-zinc-500 text-lg max-w-2xl font-light leading-relaxed"
+            className="text-zinc-500 text-lg max-w-2xl font-normal leading-relaxed"
           >
            Private sleeping pods for men and women - clean, comfortable, and bookable by the hour. Whether it's a short nap or a longer break, we've got a pod ready for you.
           </motion.p>
@@ -121,7 +122,7 @@ export default function OfferPage() {
                         className="hidden md:block absolute bottom-full left-1/2 mb-6 w-56 bg-zinc-900/95 backdrop-blur-xl text-white text-xs p-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 border border-white/20 text-center"
                       >
                         <strong className="block text-primary mb-1 text-sm font-bold">{spot.title}</strong>
-                        <p className="font-light opacity-80 leading-relaxed">{spot.description}</p>
+                        <p className="font-normal opacity-80 leading-relaxed">{spot.description}</p>
                         {/* Arrow Down */}
                         <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-zinc-900/95"></div>
                       </motion.div>
@@ -134,7 +135,7 @@ export default function OfferPage() {
             <div className="relative z-10 p-12 md:p-20 bg-linear-to-t from-zinc-900/90 via-zinc-900/40 to-transparent">
               <div className="space-y-6">
                 <h3 className="font-headline text-4xl md:text-5xl text-white font-bold tracking-tight">Climate Controlled</h3>
-                <p className="text-white/80 max-w-lg text-lg leading-relaxed font-light">
+                <p className="text-white/80 max-w-lg text-lg leading-relaxed font-normal">
                   Experience a sanctuary where every detail is optimized. Every pod features dedicated silent AC units and air filtration systems for the perfect atmosphere.
                 </p>
 
@@ -155,7 +156,7 @@ export default function OfferPage() {
                           </div>
                           <strong className="text-primary text-lg font-headline font-black">{hotspots[activeHotspot].title}</strong>
                         </div>
-                        <p className="text-white/90 text-sm leading-relaxed font-light italic">
+                        <p className="text-white/90 text-sm leading-relaxed font-normal italic">
                           "{hotspots[activeHotspot].description}"
                         </p>
                       </motion.div>
@@ -189,7 +190,7 @@ export default function OfferPage() {
                 </div>
                 <div className="space-y-3">
                   <h3 className="font-headline text-2xl font-bold text-zinc-900">Cleaned After Every Use</h3>
-                  <p className="text-zinc-500 text-sm leading-relaxed font-light">Each pod is cleaned and reset after every guest. Fresh linen, every time.</p>
+                  <p className="text-zinc-500 text-sm leading-relaxed font-normal">Each pod is cleaned and reset after every guest. Fresh linen, every time.</p>
                 </div>
               </div>
               <div className="pt-8">
@@ -210,7 +211,7 @@ export default function OfferPage() {
                 </div>
                 <div className="space-y-3">
                   <h3 className="font-headline text-2xl font-bold text-zinc-900">What's Inside Your Pod</h3>
-                  <p className="text-zinc-700 text-sm leading-relaxed font-light">Personal lighting, plug point, small fan, mobile holder, bottle holder, dress hook, and a storage box underneath - everything you need, nothing you don't.</p>
+                  <p className="text-zinc-700 text-sm leading-relaxed font-normal">Personal lighting, plug point, small fan, mobile holder, bottle holder, dress hook, and a storage box underneath - everything you need, nothing you don't.</p>
                 </div>
               </div>
               <div className="flex -space-x-3 pt-8">
@@ -255,7 +256,7 @@ export default function OfferPage() {
                 </div>
                 <div className="space-y-3">
                   <h3 className="font-headline text-3xl font-bold">Your Space, Your Privacy</h3>
-                  <p className="text-white/80 text-sm leading-relaxed font-light">Every pod has its own curtain for complete privacy. Pods are for single occupancy. Children under 10 may accompany an adult at the receptionist's discretion.</p>
+                  <p className="text-white/80 text-sm leading-relaxed font-normal">Every pod has its own curtain for complete privacy. Pods are for single occupancy. Children under 10 may accompany an adult at the receptionist's discretion.</p>
                 </div>
               </div>
               <Link 
@@ -284,7 +285,7 @@ export default function OfferPage() {
                 <h2 className="font-headline text-4xl md:text-6xl font-extrabold text-zinc-900 leading-tight tracking-tight">
                   In and Out. <br/><span className="text-primary">Fresh</span> and <span className="text-primary">Ready</span>.
                 </h2>
-                <p className="text-zinc-500 text-xl font-light leading-relaxed">
+                <p className="text-zinc-500 text-xl font-normal leading-relaxed">
                   Walk in, shower, freshen up, and go. No complex booking needed - just show up when you need that reset.
                 </p>
               </div>
@@ -293,8 +294,8 @@ export default function OfferPage() {
                 {[
                   { icon: <Zap size={20}/>, t: "Walk-in only - no advance booking required" },
                   { icon: <Bell size={20}/>, t: "Charged by the hour with fair pricing" },
-                  { icon: <Waves size={20}/>, t: "Premium towels & toiletries provided" },
-                  { icon: <ShieldCheck size={20}/>, t: "Medical-grade sanitization after use" }
+                  { icon: <Droplets size={20}/>, t: "Premium toiletries provided" },
+                  { icon: <Bath size={20}/>, t: "Bath towels available for purchase at the venue" }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-6 bg-zinc-50 rounded-lg border border-zinc-100 hover:bg-white hover:shadow-lg transition-all duration-300">
                     <div className="text-primary shrink-0">{item.icon}</div>
@@ -358,44 +359,58 @@ export default function OfferPage() {
                 <h2 className="font-headline text-4xl md:text-6xl font-extrabold text-zinc-900 leading-tight tracking-tight">
                   Travel <span className="text-primary">Light</span>. <br/>Safe <span className="text-primary">Storage</span>.
                 </h2>
-                <p className="text-zinc-500 text-xl font-light leading-relaxed">
+                <p className="text-zinc-500 text-xl font-normal leading-relaxed">
                   Leave your bags with us and move around freely. Secure, staff-managed storage with simple hourly pricing by bag size.
                 </p>
               </div>
 
-              <div className="bg-white rounded-xl overflow-hidden border border-zinc-100 shadow-2xl shadow-zinc-200/50">
-                <table className="w-full text-left border-collapse">
-                  <thead>
-                    <tr className="bg-zinc-50 border-b border-zinc-100">
-                      <th className="px-8 py-5 font-headline font-bold text-zinc-900">Type</th>
-                      <th className="px-8 py-5 font-headline font-bold text-zinc-900">Capacity</th>
-                      <th className="px-8 py-5 font-headline font-bold text-zinc-900 text-right">Pricing</th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-zinc-50">
-                    {[
-                      { s: "Small", ex: "Laptop bags, shoulder bags", p: "₹99/hr" },
-                      { s: "Medium", ex: "Cabin trolleys, heavy bags", p: "₹149/hr" },
-                      { s: "Large", ex: "Suicases (20kg+), large backpacks", p: "₹199/hr" }
-                    ].map((row, i) => (
-                      <tr key={i} className="hover:bg-orange-50/30 transition-colors">
-                        <td className="px-8 py-6">
-                           <div className="font-bold text-zinc-900">{row.s}</div>
-                           <div className="text-[10px] text-zinc-400 uppercase tracking-widest mt-1">Size Bracket</div>
-                        </td>
-                        <td className="px-8 py-6 text-zinc-500 text-sm font-light italic">{row.ex}</td>
-                        <td className="px-8 py-6 text-right">
-                          <span className="bg-white px-4 py-2 rounded-md text-primary font-black border border-orange-100 shadow-sm">
-                            {row.p}
-                          </span>
-                        </td>
+              <div className="space-y-6">
+                <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-xl space-y-3">
+                  <p className="text-zinc-900 font-bold text-sm uppercase tracking-wider">Storage Availability</p>
+                  <p className="text-zinc-700 text-sm leading-relaxed">
+                    We only have 2 types now: <span className="font-bold text-zinc-900">Standard</span> and <span className="font-bold text-zinc-900">Large</span>
+                  </p>
+                  <div className="space-y-1">
+                    <p className="text-zinc-500 text-xs"><span className="font-bold text-zinc-600">Standard</span> - backpacks, handbags, cabin bags.</p>
+                    <p className="text-zinc-500 text-xs"><span className="font-bold text-zinc-600">Large</span> - full-size trolleys, oversized bags</p>
+                  </div>
+                </div>
+
+                <div className="bg-white rounded-xl overflow-hidden border border-zinc-100 shadow-2xl shadow-zinc-200/50">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-primary border-b border-zinc-100">
+                        <th className="px-8 py-5 font-headline font-bold text-white text-sm uppercase tracking-widest">Duration</th>
+                        <th className="px-8 py-5 font-headline font-bold text-white text-sm uppercase tracking-widest text-center">Standard</th>
+                        <th className="px-8 py-5 font-headline font-bold text-white text-sm uppercase tracking-widest text-right">Large</th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-zinc-50">
+                      {[
+                        { d: "Up to 6 hours", s: "49", l: "79" },
+                        { d: "Up to 12 hours", s: "79", l: "119" },
+                        { d: "Up to 24 hours", s: "119", l: "179" }
+                      ].map((row, i) => (
+                        <tr key={i} className="hover:bg-orange-50/30 transition-colors">
+                          <td className="px-8 py-6">
+                             <div className="font-bold text-zinc-900">{row.d}</div>
+                          </td>
+                          <td className="px-8 py-6 text-center">
+                            <span className="font-black text-zinc-800">₹{row.s}</span>
+                          </td>
+                          <td className="px-8 py-6 text-right">
+                            <span className="bg-white px-4 py-2 rounded-md text-primary font-black border border-orange-100 shadow-sm">
+                              ₹{row.l}
+                            </span>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
               <p className="text-sm text-zinc-400 italic bg-zinc-50 p-6 rounded-lg border-l-4 border-zinc-200">
-                Pricing is per individual bag, per hour. Secure digital tags assigned for every item. Staffed 24/7.
+                Pricing is per individual bag. Tags will be assigned for every item. Staffed 24x7.
               </p>
             </motion.div>
           </div>
@@ -409,12 +424,9 @@ export default function OfferPage() {
             <div className="space-y-4">
               <span className="text-primary font-bold text-sm tracking-widest block uppercase font-headline">VISUAL TOUR</span>
               <h2 className="font-headline text-4xl md:text-5xl font-extrabold text-zinc-900 leading-tight tracking-tight">
-                Step Inside <span className="text-primary">Sanctuary</span>.
+                Step Inside <span className="text-primary">Rest Refresh</span>.
               </h2>
             </div>
-            <p className="text-zinc-500 max-w-md font-light leading-relaxed">
-              Explore the premium details and thoughtful design that make Rest Refresh the ultimate urban recharge station.
-            </p>
           </div>
 
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
@@ -511,39 +523,7 @@ export default function OfferPage() {
       </AnimatePresence>
 
       {/* CTA Section */}
-      <section className="pt-12 pb-24">
-        <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
-          <div className="relative rounded-xl overflow-hidden p-16 md:p-32 flex flex-col items-center text-center shadow-2xl">
-            <img 
-              alt="Serene Lounge" 
-              className="absolute inset-0 w-full h-full object-cover scale-110 blur-[2px]" 
-              src="https://lh3.googleusercontent.com/aida-public/AB6AXuATPiNPjB3L2mQ8wGGlCLQjMJDxV3ZfGNrKjS5L6yAKJ82J0Cegx86eUWOmjmLpBiQqBmc1YS1U02KjUK_Gw0uAw6mvQiQ8Wh3tsZw6yWH17IPWojnKOGwkbVa0zLyATcTWWtK9jyBLeYDMyMABrdpI0BV3dixV4y7jZ_FTdq2k4D5mdply4X812cwtCv8WN40EJcEs9I9_hOsbxUBwW0vQ83a-25XMusY29CAkJ2UgdkH4IgW8SAgvj1vZJDo5Rl6e_VOZPH7qwD4" 
-            />
-            <div className="absolute inset-0 bg-zinc-950/70 backdrop-blur-sm"></div>
-            <motion.div 
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              className="relative z-10 space-y-10"
-            >
-              <h2 className="font-headline text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-                Time to <span className="text-primary">Rest</span>, Time to <span className="text-primary">Refresh</span>?
-              </h2>
-              <p className="text-white/80 max-w-2xl mx-auto text-xl font-light leading-relaxed">
-               Pods, showers, and luggage storage - all under one roof, open around the clock.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-6 justify-center pt-4">
-                <Link 
-                  to="/contact"
-                  className="bg-primary text-white px-12 py-3 rounded-md font-bold text-base shadow-[0_20px_50px_rgba(255,109,0,0.3)] hover:scale-105 active:scale-95 transition-all cursor-pointer"
-                >
-                  Book Now
-                </Link>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </section>
+      <CtaSection />
     </div>
   );
 }

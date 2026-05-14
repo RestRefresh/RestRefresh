@@ -14,12 +14,12 @@ export default function Hero() {
         />
       </div>
 
-      <div className="relative z-20 max-w-screen-2xl mx-auto px-6 md:px-12 w-full py-16 flex flex-col lg:flex-row items-center justify-between gap-12">
+      <div className="relative z-20 max-w-screen-2xl mx-auto px-6 md:px-12 w-full py-16 flex flex-col items-start">
         <motion.div 
           initial={{ opacity: 0, x: -30 }}
           animate={{ opacity: 1, x: 0 }}
           transition={{ duration: 0.8, ease: "easeOut" }}
-          className="lg:w-3/5 w-full flex flex-col items-start"
+          className="max-w-3xl w-full flex flex-col items-start"
         >
           <span className="inline-block text-orange-200 font-headline font-bold text-xs uppercase tracking-widest mb-4 drop-shadow-sm">
           TRANSIT REST FACILITY
@@ -31,7 +31,7 @@ export default function Hero() {
           - Right Here at Vyttila 
          
           </h1>
-          <p className="text-zinc-100 text-lg mb-10 leading-relaxed font-light drop-shadow-sm">
+          <p className="text-zinc-100 text-lg mb-10 leading-relaxed font-normal drop-shadow-sm">
             Tired between journeys? We've got sleeping pods, shower facilities, and secure luggage storage - open 24x7 at the heart of Ernakulam's biggest transit hub.
           </p>
           <div className="flex flex-wrap gap-4">
@@ -41,35 +41,14 @@ export default function Hero() {
             >
               Enquire Now
             </Link>
-            <Link 
-              to="/offer"
+            <button 
+              onClick={() => {
+                document.getElementById('location')?.scrollIntoView({ behavior: 'smooth' });
+              }}
               className="bg-white/10 backdrop-blur-md text-white border border-white/20 px-8 py-3 rounded-md font-headline font-bold tracking-tight hover:bg-white/20 transition-all active:scale-95 cursor-pointer"
             >
-              View Locations
-            </Link>
-          </div>
-        </motion.div>
-
-        {/* Floating Stats Box */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8, delay: 0.2 }}
-          className="hidden lg:flex bg-white/10 backdrop-blur-md border border-white/20 p-8 rounded-lg flex-col gap-6 text-white min-w-[280px]"
-        >
-          <div className="space-y-1">
-            <span className="block text-4xl font-black font-headline">4.9/5</span>
-            <span className="text-xs uppercase tracking-wider opacity-70">User Rating</span>
-          </div>
-          <div className="h-px bg-white/20"></div>
-          <div className="space-y-1">
-            <span className="block text-4xl font-black font-headline">50+</span>
-            <span className="text-xs uppercase tracking-wider opacity-70">Global Pods</span>
-          </div>
-          <div className="h-px bg-white/20"></div>
-          <div className="space-y-1">
-            <span className="block text-4xl font-black font-headline">10k+</span>
-            <span className="text-xs uppercase tracking-wider opacity-70">Happy Clients</span>
+              View Location
+            </button>
           </div>
         </motion.div>
       </div>
