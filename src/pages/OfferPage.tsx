@@ -294,7 +294,7 @@ export default function OfferPage() {
                 {[
                   { icon: <Zap size={20}/>, t: "Walk-in only - no advance booking required" },
                   { icon: <Bell size={20}/>, t: "Charged by the hour with fair pricing" },
-                  { icon: <Droplets size={20}/>, t: "Premium toiletries provided" },
+                  { icon: <Droplets size={20}/>, t: "Shower liquid and shampoo provided" },
                   { icon: <Bath size={20}/>, t: "Bath towels available for purchase at the venue" }
                 ].map((item, i) => (
                   <div key={i} className="flex gap-4 p-6 bg-zinc-50 rounded-lg border border-zinc-100 hover:bg-white hover:shadow-lg transition-all duration-300">
@@ -365,14 +365,21 @@ export default function OfferPage() {
               </div>
 
               <div className="space-y-6">
-                <div className="bg-primary/5 border-l-4 border-primary p-6 rounded-r-xl space-y-3">
-                  <p className="text-zinc-900 font-bold text-sm uppercase tracking-wider">Storage Availability</p>
-                  <p className="text-zinc-700 text-sm leading-relaxed">
-                    We only have 2 types now: <span className="font-bold text-zinc-900">Standard</span> and <span className="font-bold text-zinc-900">Large</span>
-                  </p>
-                  <div className="space-y-1">
-                    <p className="text-zinc-500 text-xs"><span className="font-bold text-zinc-600">Standard</span> - backpacks, handbags, cabin bags.</p>
-                    <p className="text-zinc-500 text-xs"><span className="font-bold text-zinc-600">Large</span> - full-size trolleys, oversized bags</p>
+                <div className="bg-primary/5 border-l-4 border-primary p-8 rounded-r-xl space-y-5">
+                  <p className="text-zinc-900 font-bold text-sm uppercase tracking-widest">STORAGE AVAILABILITY</p>
+                  <div className="space-y-4">
+                    <div className="flex gap-4 items-center">
+                      <span className="text-3xl shrink-0">💼</span>
+                      <p className="text-zinc-700 text-base leading-relaxed">
+                        <span className="font-bold text-zinc-900">Standard</span> - Backpacks, handbags, cabin bags and similar.
+                      </p>
+                    </div>
+                    <div className="flex gap-4 items-center">
+                      <span className="text-3xl shrink-0">🧳</span>
+                      <p className="text-zinc-700 text-base leading-relaxed">
+                        <span className="font-bold text-zinc-900">Large</span> - Full-size trolleys, oversized bags and similar.
+                      </p>
+                    </div>
                   </div>
                 </div>
 

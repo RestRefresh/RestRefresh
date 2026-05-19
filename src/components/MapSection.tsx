@@ -18,7 +18,7 @@ export default function MapSection() {
           {/* Real Google Map */}
           <iframe
             title="Vyttila Location Map"
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3929.213123456789!2d76.321123!3d9.971456!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080da5d3a5a5a1%3A0xa9f8c6e7f8d5c4b1!2sRest%20Refresh%20Vyttila!5e0!3m2!1sen!2sin!4v1715537136000!5m2!1sen!2sin"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d982.3033502891913!2d76.32085796956277!3d9.97142462002341!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b080da5d3a5a5a1%3A0xa9f8c6e7f8d5c4b1!2sRest%20Refresh%20Vyttila!5e0!3m2!1sen!2sin!4v1715537136000!5m2!1sen!2sin"
             className="w-full h-full border-0 grayscale brightness-110 contrast-125 transition-all duration-700 group-hover:grayscale-0 group-hover:brightness-100 group-hover:contrast-100"
             allowFullScreen
             loading="lazy"
@@ -45,7 +45,7 @@ export default function MapSection() {
               
               {/* Label */}
               <div className="absolute top-full mt-6 bg-zinc-900 text-white text-[10px] font-black px-4 py-1.5 rounded-full whitespace-nowrap shadow-2xl border border-white/20 uppercase tracking-widest">
-                Rest Refresh Vyttila
+                Rest Refresh
               </div>
             </div>
           </motion.div>
@@ -62,15 +62,14 @@ export default function MapSection() {
                 <MapPin size={24} />
               </div>
               <div className="space-y-1">
-                <h4 className="font-headline font-bold text-xl text-zinc-900">Rest Refresh Vyttila</h4>
+                <h4 className="font-headline font-bold text-xl text-zinc-900">Rest Refresh</h4>
                 <p className="text-zinc-500 font-normal text-sm leading-relaxed">
-                  Above Vyttila Metro Station, Kochi, Kerala 682019
+                  2nd Floor Style Plaza, Vyttila, Ernakulam
                 </p>
                 <div className="flex gap-4 mt-2 items-center">
                   <span className="text-[10px] font-bold uppercase tracking-widest text-primary">Open 24/7</span>
-                  <span className="text-[10px] font-bold uppercase tracking-widest text-zinc-400">All Services Available</span>
                   <a 
-                    href="https://maps.app.goo.gl/7CZDMWMuxqPs3cQq5" 
+                    href="https://maps.app.goo.gl/KAAUrXELZtUiLGdh7" 
                     target="_blank" 
                     rel="noreferrer"
                     className="ml-auto text-primary hover:underline text-xs font-bold"

@@ -9,17 +9,17 @@ export default function Offer() {
       <div className="absolute top-0 right-0 w-64 h-64 bg-white/5 rounded-full -translate-y-1/2 translate-x-1/2 blur-3xl"></div>
       <div className="absolute bottom-0 left-0 w-96 h-96 bg-black/5 rounded-full translate-y-1/2 -translate-x-1/2 blur-3xl"></div>
       
-      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 flex flex-col lg:flex-row items-center justify-between gap-12 relative z-10">
+      <div className="max-w-screen-2xl mx-auto px-6 md:px-12 py-16 flex flex-col min-[1200px]:flex-row items-center justify-between gap-12 relative z-10">
         <motion.div 
           initial={{ opacity: 0, x: -20 }}
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true }}
-          className="text-center lg:text-left"
+          className="text-center min-[1200px]:text-left w-full min-[1200px]:w-auto"
         >
           <h2 className="text-4xl md:text-5xl font-headline font-extrabold text-white leading-tight mb-4 tracking-tight">
             First Session? Take <span className="text-orange-200">10% OFF</span>
           </h2>
-          <p className="text-orange-100 text-xl font-normal max-w-md mx-auto lg:mx-0">
+          <p className="text-orange-100 text-xl font-normal max-w-md min-[1200px]:max-w-none mx-auto min-[1200px]:mx-0">
             Make sure you get a good reset with code: <span className="font-bold underline decoration-orange-300/50 underline-offset-8">RR10</span>
           </p>
         </motion.div>
@@ -28,7 +28,7 @@ export default function Offer() {
           initial={{ opacity: 0, scale: 0.95 }}
           whileInView={{ opacity: 1, scale: 1 }}
           viewport={{ once: true }}
-          className="flex flex-col sm:flex-row items-stretch gap-6 w-full lg:w-auto"
+          className="flex flex-col sm:flex-row items-stretch gap-6 w-full min-[1200px]:w-auto"
         >
           <div className="flex items-center gap-4 bg-white/10 backdrop-blur-xl border border-white/20 px-8 py-5 rounded-lg text-white shadow-2xl flex-1">
             <Gift className="text-orange-300 shrink-0" size={28} />

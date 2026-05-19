@@ -18,7 +18,7 @@ export default function Footer() {
               </Link>
             </div>
             <div className="font-body text-zinc-400 text-base leading-relaxed max-w-md font-normal space-y-2">
-              <p className="italic text-zinc-300">Want to make sure you get a good reset?</p>
+              <p className="italic text-zinc-300 text-lg">Want to make sure you get a good reset?</p>
               <p>Pods, showers, and luggage storage - all under one roof, open around the clock.</p>
             </div>
             <div className="space-y-4">

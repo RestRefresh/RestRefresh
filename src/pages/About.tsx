@@ -20,6 +20,14 @@ const faqs = [
   {
     question: "How do you maintain hygiene?",
     answer: "Every pod and shower space undergoes a strict cleaning protocol after every use. We use fresh linens for every guest and maintain ventilation systems for constant fresh air."
+  },
+  {
+    question: "What is your cancellation and refund policy?",
+    answer: "All bookings are final. We do not offer cancellations or refunds once a booking is confirmed, so please make sure you are ready before completing your booking."
+  },
+  {
+    question: "Can I book a sleeping pod now and pay later?",
+    answer: "We require full payment at the time of booking - your slot is only confirmed once payment is received. If you're a walk-in customer, simply come to the front desk and we'll get you sorted on the spot."
   }
 ];
 

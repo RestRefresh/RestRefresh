@@ -19,7 +19,7 @@ export default function CtaSection() {
             className="relative z-10 space-y-10"
           >
             <h2 className="font-headline text-4xl md:text-6xl font-extrabold text-white tracking-tight leading-tight">
-              Time to <span className="text-primary">Rest</span>, Time to <span className="text-primary">Refresh</span>?
+              Time to <span className="text-primary">Rest</span>? Time to <span className="text-primary">Refresh</span>?
             </h2>
             <p className="text-white/80 max-w-2xl mx-auto text-xl font-normal leading-relaxed">
               Pods, showers, and luggage storage - all under one roof, open around the clock.
