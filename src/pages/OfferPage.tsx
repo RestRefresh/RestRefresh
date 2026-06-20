@@ -222,7 +222,8 @@ export default function OfferPage() {
                   { icon: <Smartphone size={16} />, label: 'Mobile Holder' },
                   { icon: <GlassWater size={16} />, label: 'Bottle Holder' },
                   { icon: <Shirt size={16} />, label: 'Hooks' },
-                  { icon: <Archive size={16} />, label: 'Storage' }
+                  { icon: <Archive size={16} />, label: 'Storage' },
+                  { icon: <Plus size={16} />, label: 'More Amenities' }
                 ].map((item, i) => (
                   <motion.div 
                     key={i} 
