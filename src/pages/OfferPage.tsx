@@ -5,11 +5,15 @@ import { Link } from 'react-router-dom';
 import CtaSection from '../components/CtaSection';
 
 const hotspots = [
-  { top: '35%', left: '42%', title: 'Climate Controlled', description: 'Precision AC and air filtration for your perfect environment.' },
-  { top: '22%', left: '18%', title: 'Mood Lighting', description: 'Mood lighting adjustable to your recovery needs.' },
-  { top: '52%', left: '55%', title: 'Smart Controls', description: 'Adjust temperature, lighting, and sound from the central console.' },
-  { top: '72%', left: '38%', title: 'Ergonomic Comfort', description: 'Medical-grade mattresses designed for maximum pressure relief.' },
-  { top: '45%', left: '78%', title: 'Sound Sanctuary', description: 'Acoustic engineering that blocks out the chaos of the transit hub.' }
+  { top: '18%', left: '20%', title: 'Lighting' },
+  { top: '42%', left: '17%', title: 'Plug & Switchboard' },
+  { top: '62%', left: '33%', title: 'Pillow' },
+  { top: '74%', left: '52%', title: 'Blanket' },
+  { top: '82%', left: '38%', title: 'Bedsheet' },
+  { top: '16%', left: '54%', title: 'Dress Hanger' },
+  { top: '10%', left: '82%', title: 'Fan' },
+  { top: '56%', left: '80%', title: 'Bottle Holder' },
+  { top: '48%', left: '93%', title: 'Curtain' },
 ];
 
 export default function OfferPage() {
@@ -119,12 +123,11 @@ export default function OfferPage() {
                         initial={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
                         animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
                         exit={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
-                        className="hidden md:block absolute bottom-full left-1/2 mb-6 w-56 bg-zinc-900/95 backdrop-blur-xl text-white text-xs p-4 rounded-xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] z-50 border border-white/20 text-center"
+                        className="hidden md:block absolute bottom-full left-1/2 mb-6 bg-white/95 backdrop-blur-xl text-xs px-4 py-2.5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-50 border border-primary/20 text-center whitespace-nowrap"
                       >
-                        <strong className="block text-primary mb-1 text-sm font-bold">{spot.title}</strong>
-                        <p className="font-normal opacity-80 leading-relaxed">{spot.description}</p>
+                        <strong className="block text-primary text-sm font-bold tracking-wide">{spot.title}</strong>
                         {/* Arrow Down */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[8px] border-l-transparent border-r-[8px] border-r-transparent border-t-[8px] border-t-zinc-900/95"></div>
+                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white/95"></div>
                       </motion.div>
                     )}
                   </AnimatePresence>
@@ -136,7 +139,7 @@ export default function OfferPage() {
               <div className="space-y-6">
                 <h3 className="font-headline text-4xl md:text-5xl text-white font-bold tracking-tight">Climate Controlled</h3>
                 <p className="text-white/80 max-w-lg text-lg leading-relaxed font-normal">
-                  Experience a sanctuary where every detail is optimized. Every pod features dedicated silent AC units and air filtration systems for the perfect atmosphere.
+                  Stay cool throughout your stay. Our dorms are fully air-conditioned, with each pod featuring a personal fan and a curtain for added comfort and privacy.
                 </p>
 
                 {/* Mobile Hotspot Info Box */}
@@ -156,9 +159,6 @@ export default function OfferPage() {
                           </div>
                           <strong className="text-primary text-lg font-headline font-black">{hotspots[activeHotspot].title}</strong>
                         </div>
-                        <p className="text-white/90 text-sm leading-relaxed font-normal italic">
-                          "{hotspots[activeHotspot].description}"
-                        </p>
                       </motion.div>
                     ) : (
                       <motion.div
@@ -424,13 +424,7 @@ export default function OfferPage() {
                   src="/images/cloakroom.jpg"
                 />
                 <div className="absolute inset-0 bg-primary/5 group-hover:bg-transparent transition-colors"></div>
-                <div className="absolute top-10 left-10 bg-white/90 backdrop-blur-md px-6 py-4 rounded-lg shadow-xl flex items-center gap-4 border border-white/50">
-                  <Warehouse className="text-primary" />
-                  <div className="space-y-0.5">
-                    <span className="block text-[10px] font-bold text-zinc-400 uppercase tracking-widest">Storage Status</span>
-                    <span className="block text-sm font-bold text-zinc-900">85% Secured Space</span>
-                  </div>
-                </div>
+
               </div>
             </motion.div>
             <motion.div

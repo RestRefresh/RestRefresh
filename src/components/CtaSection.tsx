@@ -6,10 +6,10 @@ export default function CtaSection() {
     <section className="py-24">
       <div className="max-w-screen-2xl mx-auto px-6 md:px-12">
         <div className="relative rounded-2xl overflow-hidden p-16 md:p-32 flex flex-col items-center text-center shadow-2xl">
-          <img 
-            alt="Rest Refresh Lounge" 
-            className="absolute inset-0 w-full h-full object-cover scale-110 blur-[2px]" 
-            src="https://lh3.googleusercontent.com/aida-public/AB6AXuATPiNPjB3L2mQ8wGGlCLQjMJDxV3ZfGNrKjS5L6yAKJ82J0Cegx86eUWOmjmLpBiQqBmc1YS1U02KjUK_Gw0uAw6mvQiQ8Wh3tsZw6yWH17IPWojnKOGwkbVa0zLyATcTWWtK9jyBLeYDMyMABrdpI0BV3dixV4y7jZ_FTdq2k4D5mdply4X812cwtCv8WN40EJcEs9I9_hOsbxUBwW0vQ83a-25XMusY29CAkJ2UgdkH4IgW8SAgvj1vZJDo5Rl6e_VOZPH7qwD4" 
+          <img
+            alt="Rest Refresh Lounge"
+            className="absolute inset-0 w-full h-full object-cover scale-110 blur-[2px]"
+            src="/images/RestRefresh-banner.jpg"
           />
           <div className="absolute inset-0 bg-zinc-950/70 backdrop-blur-sm"></div>
           <motion.div 

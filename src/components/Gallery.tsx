@@ -15,7 +15,7 @@ const galleryItems = [
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1535312800630-1c173409799a?q=80&w=1200&auto=format&fit=crop",
+    src: "/images/Portrait---Pod.jpg",
     alt: "Sleeping Pods"
   },
   {
@@ -29,8 +29,8 @@ const galleryItems = [
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1610244767159-0f9797ff1926?q=80&w=1200&auto=format&fit=crop",
-    alt: "Storage Lockers"
+    src: "/images/Portrait---Cloakroom.jpg",
+    alt: "Luggage Storage Space"
   },
   {
     type: "text",
@@ -43,8 +43,8 @@ const galleryItems = [
   },
   {
     type: "image",
-    src: "https://images.unsplash.com/photo-1445116572660-236099ec97a0?q=80&w=1200&auto=format&fit=crop",
-    alt: "Cafeteria"
+    src: "/images/Portrait---refresh.jpg",
+    alt: "Clean Shower & Toilet"
   }
 ];
 
@@ -99,9 +99,8 @@ export default function Gallery() {
               whileInView={{ opacity: 1, scale: 1 }}
               viewport={{ once: true }}
               transition={{ delay: index * 0.1 }}
-              className={`rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 aspect-[4/5] ${
-                item.type === 'text' ? item.bgColor : 'bg-white'
-              }`}
+              className={`rounded-lg overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 aspect-[4/5] ${item.type === 'text' ? item.bgColor : 'bg-white'
+                }`}
             >
               {item.type === 'text' ? (
                 <div className="p-10 flex flex-col h-full bg-linear-to-br from-white/20 to-transparent">
@@ -125,14 +124,14 @@ export default function Gallery() {
                   </div>
                 </div>
               ) : (
-                <div 
+                <div
                   className="relative h-full group cursor-pointer"
                   onClick={() => openLightbox(item.src!)}
                 >
-                  <img 
-                    src={item.thumbnail || item.src} 
-                    alt={item.alt} 
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" 
+                  <img
+                    src={item.thumbnail || item.src}
+                    alt={item.alt}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                   />
                   <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center">
                     <div className="bg-white/20 backdrop-blur-md p-4 rounded-full border border-white/30 scale-50 group-hover:scale-100 transition-transform duration-500">
@@ -153,38 +152,38 @@ export default function Gallery() {
             exit={{ opacity: 0 }}
             className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-xl flex items-center justify-center p-4 md:p-12"
           >
-            <button 
+            <button
               onClick={closeLightbox}
               className="absolute top-6 right-6 text-white/50 hover:text-white transition-colors cursor-pointer z-50 p-2 bg-white/10 rounded-full"
             >
               <X size={32} />
             </button>
 
-            <button 
+            <button
               onClick={() => navigate('prev')}
               className="absolute left-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors cursor-pointer z-50 p-4 bg-white/10 rounded-full hidden md:block"
             >
               <ChevronLeft size={40} />
             </button>
 
-            <button 
+            <button
               onClick={() => navigate('next')}
               className="absolute right-6 top-1/2 -translate-y-1/2 text-white/50 hover:text-white transition-colors cursor-pointer z-50 p-4 bg-white/10 rounded-full hidden md:block"
             >
               <ChevronRight size={40} />
             </button>
 
-            <motion.div 
+            <motion.div
               key={selectedIndex}
               initial={{ scale: 0.9, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
               transition={{ type: "spring", damping: 25, stiffness: 300 }}
-              className="relative max-w-6xl w-full aspect-video rounded-xl overflow-hidden shadow-2xl"
+              className="relative max-w-[1200px] max-h-[800px] rounded-xl overflow-hidden shadow-2xl"
             >
-              <img 
-                src={imagesOnly[selectedIndex].src} 
+              <img
+                src={imagesOnly[selectedIndex].src}
                 alt={imagesOnly[selectedIndex].alt}
-                className="w-full h-full object-cover"
+                className="block max-w-[1200px] max-h-[800px] w-auto h-auto"
               />
               <div className="absolute bottom-0 inset-x-0 p-8 bg-linear-to-t from-black/80 to-transparent">
                 <p className="text-white font-headline font-bold text-xl">{imagesOnly[selectedIndex].alt}</p>
@@ -196,9 +195,8 @@ export default function Gallery() {
                         e.stopPropagation();
                         setSelectedIndex(i);
                       }}
-                      className={`h-1.5 rounded-full transition-all duration-300 ${
-                        i === selectedIndex ? 'w-8 bg-primary' : 'w-2 bg-white/30'
-                      }`}
+                      className={`h-1.5 rounded-full transition-all duration-300 ${i === selectedIndex ? 'w-8 bg-primary' : 'w-2 bg-white/30'
+                        }`}
                     />
                   ))}
                 </div>
