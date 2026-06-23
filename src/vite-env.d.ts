@@ -1,7 +1,7 @@
 /// <reference types="vite/client" />
 
 interface ImportMetaEnv {
-  readonly VITE_FORMSPREEE_ENDPOINT: string;
+  readonly VITE_FORMSPREE_FORM_ID: string;
 }
 
 interface ImportMeta {
