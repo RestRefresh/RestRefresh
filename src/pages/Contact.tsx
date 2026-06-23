@@ -126,7 +126,7 @@ export default function Contact() {
       const body = encodeURIComponent(
         `Full Name: ${data.fullName}\nEmail: ${data.email}\nInquiry Type: ${data.inquiryType}\n\nMessage:\n${data.message}`
       );
-      window.location.href = `mailto:vbnidheesh@gmail.com?subject=${subject}&body=${body}`;
+      window.location.href = `mailto:info@restrefresh.in?subject=${subject}&body=${body}`;
     }
   };
   return (
@@ -177,7 +177,7 @@ export default function Contact() {
                   </motion.div>
                   <h3 className="text-3xl font-bold text-zinc-900 mb-4 tracking-tight">Message Received!</h3>
                   <p className="text-zinc-500 max-w-sm mb-8 font-normal">
-                    Your enquiry has been sent to <strong>vbnidheesh@gmail.com</strong>. Our team will get back to you within 24 hours.
+                    Your enquiry has been sent to <strong>info@restrefresh.in</strong>. Our team will get back to you within 24 hours.
                   </p>
                   <button 
                     onClick={() => setShowSuccess(false)}
