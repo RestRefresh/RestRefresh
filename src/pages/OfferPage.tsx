@@ -91,13 +91,13 @@ export default function OfferPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="w-full bg-white rounded-xl relative overflow-hidden flex flex-col shadow-2xl border border-zinc-100"
+            className="w-full bg-white rounded-xl relative flex flex-col shadow-2xl border border-zinc-100"
           >
             {/* Image + Hotspots Wrapper */}
-            <div className="relative w-full overflow-hidden">
+            <div className="relative w-full">
               <img
                 alt="High-tech rest pod interior"
-                className="w-full h-auto block"
+                className="w-full h-auto block rounded-t-xl lg:rounded-xl"
                 src="/images/pod-img.jpg"
               />
 
@@ -111,7 +111,7 @@ export default function OfferPage() {
                   >
                     <button
                       onClick={() => setActiveHotspot(activeHotspot === i ? null : i)}
-                      className="relative w-10 h-10 flex items-center justify-center transform hover:scale-110 transition-transform cursor-pointer group -translate-x-1/2 -translate-y-1/2"
+                      className="absolute w-10 h-10 flex items-center justify-center transform hover:scale-110 transition-transform cursor-pointer group -translate-x-1/2 -translate-y-1/2"
                     >
                       <div className="absolute w-full h-full bg-white/30 rounded-full animate-ping"></div>
                       <div className={`relative w-6 h-6 rounded-full flex items-center justify-center shadow-lg border-2 bg-white transition-all duration-300 ${activeHotspot === i ? 'border-primary rotate-45' : 'border-white'}`}>
@@ -125,7 +125,7 @@ export default function OfferPage() {
                           initial={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
                           animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
                           exit={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
-                          className="hidden md:block absolute bottom-full left-1/2 mb-6 bg-white/95 backdrop-blur-xl text-xs px-4 py-2.5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-50 border border-primary/20 text-center whitespace-nowrap"
+                          className="hidden lg:block absolute bottom-full left-1/2 mb-6 bg-white/95 backdrop-blur-xl text-xs px-4 py-2.5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-50 border border-primary/20 text-center whitespace-nowrap"
                         >
                           <strong className="block text-primary text-sm font-bold tracking-wide">{spot.title}</strong>
                           {/* Arrow Down */}
@@ -139,15 +139,10 @@ export default function OfferPage() {
             </div>
 
             {/* Overlay / Info Text Box */}
-            <div className="relative z-10 p-8 md:p-12 lg:p-20 bg-white lg:bg-transparent lg:bg-linear-to-t lg:from-zinc-900/90 lg:via-zinc-900/40 lg:to-transparent lg:absolute lg:bottom-0 lg:inset-x-0">
-              <div className="space-y-6">
-                <h3 className="font-headline text-3xl md:text-4xl lg:text-5xl text-zinc-900 lg:text-white font-bold tracking-tight">Climate Controlled</h3>
-                <p className="text-zinc-600 lg:text-white/80 max-w-lg text-base md:text-lg leading-relaxed font-normal">
-                  Stay cool throughout your stay. Our dorms are fully air-conditioned, with each pod featuring a personal fan and a curtain for added comfort and privacy.
-                </p>
-
+            <div className="relative z-10 p-8 md:p-12 lg:p-20 bg-white rounded-b-xl lg:bg-transparent lg:bg-linear-to-t lg:from-zinc-900/90 lg:via-zinc-900/40 lg:to-transparent lg:absolute lg:bottom-0 lg:inset-x-0 lg:rounded-b-xl">
+              <div className="flex flex-col">
                 {/* Mobile Hotspot Info Box */}
-                <div className="md:hidden">
+                <div className="lg:hidden mb-6">
                   <AnimatePresence mode="wait">
                     {activeHotspot !== null ? (
                       <motion.div
@@ -155,7 +150,7 @@ export default function OfferPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="bg-zinc-50 border border-zinc-100 p-6 rounded-xl space-y-2 mt-8"
+                        className="bg-zinc-50 border border-zinc-100 p-6 rounded-xl space-y-2"
                       >
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
@@ -168,13 +163,21 @@ export default function OfferPage() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="text-zinc-400 text-xs mt-8 flex items-center gap-2 italic uppercase tracking-widest font-bold"
+                        className="text-zinc-400 text-xs flex items-center gap-2 italic uppercase tracking-widest font-bold"
                       >
                         <span className="w-8 h-px bg-zinc-200"></span>
                         Tap the plus icons for details
                       </motion.div>
                     )}
                   </AnimatePresence>
+                </div>
+
+                {/* Text Content */}
+                <div className="space-y-6">
+                  <h3 className="font-headline text-3xl md:text-4xl lg:text-5xl text-zinc-900 lg:text-white font-bold tracking-tight">Climate Controlled</h3>
+                  <p className="text-zinc-600 lg:text-white/80 max-w-lg text-base md:text-lg leading-relaxed font-normal">
+                    Stay cool throughout your stay. Our dorms are fully air-conditioned, with each pod featuring a personal fan and a curtain for added comfort and privacy.
+                  </p>
                 </div>
               </div>
             </div>
