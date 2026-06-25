@@ -5,15 +5,15 @@ import { Link } from 'react-router-dom';
 import CtaSection from '../components/CtaSection';
 
 const hotspots = [
-  { top: '18%', left: '20%', title: 'Lighting' },
-  { top: '42%', left: '17%', title: 'Plug & Switchboard' },
-  { top: '62%', left: '33%', title: 'Pillow' },
-  { top: '74%', left: '52%', title: 'Blanket' },
-  { top: '82%', left: '38%', title: 'Bedsheet' },
-  { top: '16%', left: '54%', title: 'Dress Hanger' },
-  { top: '10%', left: '82%', title: 'Fan' },
-  { top: '56%', left: '80%', title: 'Bottle Holder' },
-  { top: '48%', left: '93%', title: 'Curtain' },
+  { top: '4%', left: '15.5%', title: 'Lighting' },
+  { top: '15%', left: '20.5%', title: 'Plug & Switchboard' },
+  { top: '38%', left: '33%', title: 'Pillow' },
+  { top: '88%', left: '62%', title: 'Blanket' },
+  { top: '70%', left: '37%', title: 'Bedsheet' },
+  { top: '9%', left: '56%', title: 'Dress Hanger' },
+  { top: '5%', left: '79%', title: 'Fan' },
+  { top: '34%', left: '70%', title: 'Bottle Holder' },
+  { top: '62%', left: '85%', title: 'Curtain' },
 ];
 
 export default function OfferPage() {
@@ -91,54 +91,58 @@ export default function OfferPage() {
             initial={{ opacity: 0, scale: 0.95 }}
             whileInView={{ opacity: 1, scale: 1 }}
             viewport={{ once: true }}
-            className="w-full bg-white rounded-xl relative overflow-hidden flex flex-col justify-end min-h-[500px] md:min-h-[700px] shadow-2xl border border-zinc-100"
+            className="w-full bg-white rounded-xl relative overflow-hidden flex flex-col shadow-2xl border border-zinc-100"
           >
-            <img
-              alt="High-tech rest pod interior"
-              className="absolute inset-0 w-full h-full object-cover"
-              src="/images/pod-img.jpg"
-            />
+            {/* Image + Hotspots Wrapper */}
+            <div className="relative w-full overflow-hidden">
+              <img
+                alt="High-tech rest pod interior"
+                className="w-full h-auto block"
+                src="/images/pod-img.jpg"
+              />
 
-            {/* Hotspots Container */}
-            <div className="absolute inset-0 z-40 pointer-events-none">
-              {hotspots.map((spot, i) => (
-                <div
-                  key={i}
-                  className="absolute pointer-events-auto"
-                  style={{ top: spot.top, left: spot.left }}
-                >
-                  <button
-                    onClick={() => setActiveHotspot(activeHotspot === i ? null : i)}
-                    className="relative w-10 h-10 flex items-center justify-center transform hover:scale-110 transition-transform cursor-pointer group -translate-x-1/2 -translate-y-1/2"
+              {/* Hotspots Container */}
+              <div className="absolute inset-0 z-40 pointer-events-none">
+                {hotspots.map((spot, i) => (
+                  <div
+                    key={i}
+                    className="absolute pointer-events-auto"
+                    style={{ top: spot.top, left: spot.left }}
                   >
-                    <div className="absolute w-full h-full bg-white/30 rounded-full animate-ping"></div>
-                    <div className={`relative w-6 h-6 rounded-full flex items-center justify-center shadow-lg border-2 bg-white transition-all duration-300 ${activeHotspot === i ? 'border-primary rotate-45' : 'border-white'}`}>
-                      {activeHotspot === i ? <X size={12} className="text-primary" /> : <Plus size={12} className="text-primary" />}
-                    </div>
-                  </button>
+                    <button
+                      onClick={() => setActiveHotspot(activeHotspot === i ? null : i)}
+                      className="relative w-10 h-10 flex items-center justify-center transform hover:scale-110 transition-transform cursor-pointer group -translate-x-1/2 -translate-y-1/2"
+                    >
+                      <div className="absolute w-full h-full bg-white/30 rounded-full animate-ping"></div>
+                      <div className={`relative w-6 h-6 rounded-full flex items-center justify-center shadow-lg border-2 bg-white transition-all duration-300 ${activeHotspot === i ? 'border-primary rotate-45' : 'border-white'}`}>
+                        {activeHotspot === i ? <X size={12} className="text-primary" /> : <Plus size={12} className="text-primary" />}
+                      </div>
+                    </button>
 
-                  <AnimatePresence>
-                    {activeHotspot === i && (
-                      <motion.div
-                        initial={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
-                        animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
-                        exit={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
-                        className="hidden md:block absolute bottom-full left-1/2 mb-6 bg-white/95 backdrop-blur-xl text-xs px-4 py-2.5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-50 border border-primary/20 text-center whitespace-nowrap"
-                      >
-                        <strong className="block text-primary text-sm font-bold tracking-wide">{spot.title}</strong>
-                        {/* Arrow Down */}
-                        <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white/95"></div>
-                      </motion.div>
-                    )}
-                  </AnimatePresence>
-                </div>
-              ))}
+                    <AnimatePresence>
+                      {activeHotspot === i && (
+                        <motion.div
+                          initial={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
+                          animate={{ opacity: 1, scale: 1, y: 0, x: '-50%' }}
+                          exit={{ opacity: 0, scale: 0.9, y: 15, x: '-50%' }}
+                          className="hidden md:block absolute bottom-full left-1/2 mb-6 bg-white/95 backdrop-blur-xl text-xs px-4 py-2.5 rounded-lg shadow-[0_10px_30px_rgba(0,0,0,0.3)] z-50 border border-primary/20 text-center whitespace-nowrap"
+                        >
+                          <strong className="block text-primary text-sm font-bold tracking-wide">{spot.title}</strong>
+                          {/* Arrow Down */}
+                          <div className="absolute top-full left-1/2 -translate-x-1/2 w-0 h-0 border-l-[6px] border-l-transparent border-r-[6px] border-r-transparent border-t-[6px] border-t-white/95"></div>
+                        </motion.div>
+                      )}
+                    </AnimatePresence>
+                  </div>
+                ))}
+              </div>
             </div>
 
-            <div className="relative z-10 p-12 md:p-20 bg-linear-to-t from-zinc-900/90 via-zinc-900/40 to-transparent">
+            {/* Overlay / Info Text Box */}
+            <div className="relative z-10 p-8 md:p-12 lg:p-20 bg-white lg:bg-transparent lg:bg-linear-to-t lg:from-zinc-900/90 lg:via-zinc-900/40 lg:to-transparent lg:absolute lg:bottom-0 lg:inset-x-0">
               <div className="space-y-6">
-                <h3 className="font-headline text-4xl md:text-5xl text-white font-bold tracking-tight">Climate Controlled</h3>
-                <p className="text-white/80 max-w-lg text-lg leading-relaxed font-normal">
+                <h3 className="font-headline text-3xl md:text-4xl lg:text-5xl text-zinc-900 lg:text-white font-bold tracking-tight">Climate Controlled</h3>
+                <p className="text-zinc-600 lg:text-white/80 max-w-lg text-base md:text-lg leading-relaxed font-normal">
                   Stay cool throughout your stay. Our dorms are fully air-conditioned, with each pod featuring a personal fan and a curtain for added comfort and privacy.
                 </p>
 
@@ -151,7 +155,7 @@ export default function OfferPage() {
                         initial={{ opacity: 0, y: 10 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -10 }}
-                        className="bg-white/10 backdrop-blur-md p-6 rounded-xl border border-white/20 space-y-2 mt-8"
+                        className="bg-zinc-50 border border-zinc-100 p-6 rounded-xl space-y-2 mt-8"
                       >
                         <div className="flex items-center gap-3">
                           <div className="w-8 h-8 rounded-full bg-primary flex items-center justify-center">
@@ -164,9 +168,9 @@ export default function OfferPage() {
                       <motion.div
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
-                        className="text-white/40 text-xs mt-8 flex items-center gap-2 italic uppercase tracking-widest font-bold"
+                        className="text-zinc-400 text-xs mt-8 flex items-center gap-2 italic uppercase tracking-widest font-bold"
                       >
-                        <span className="w-8 h-px bg-white/20"></span>
+                        <span className="w-8 h-px bg-zinc-200"></span>
                         Tap the plus icons for details
                       </motion.div>
                     )}
